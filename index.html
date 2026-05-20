@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unruly Labs LP — Unruly ideas. Engineered into businesses.</title>
+  <meta name="description" content="Unruly ideas. Engineered into businesses. Unruly Labs LP operates a multi-agent system that ships paying-client work across consumer products, enterprise services, quantitative research, and productized engagements." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy: #0a2540;
+      --navy-soft: #13314f;
+      --ink: #0d1b2a;
+      --ash: #5a6b7b;
+      --paper: #f7f8fa;
+      --line: #e4e8ee;
+      --accent: #ff7a00;
+      --accent-soft: #ffe9d6;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    h1, h2, h3, h4 { letter-spacing: -0.02em; }
+    .h-display { font-weight: 700; line-height: 1.05; letter-spacing: -0.035em; }
+    .h-section { font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
+    .body-lead { font-size: 1.125rem; line-height: 1.6; color: var(--ash); }
+    .body-prose { line-height: 1.7; color: #1f2a37; }
+    .rule { height: 1px; background: var(--line); }
+    .tag-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 0.3rem 0.6rem; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--ash); background: #fff;
+    }
+    .tag-pill .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+    .tag-institutional .dot { background: var(--navy); }
+    .tag-vibrant .dot { background: var(--accent); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 0.95rem; padding: 0.85rem 1.4rem; border-radius: 8px;
+      transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { background: var(--navy-soft); transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-accent:hover { background: #e66b00; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--navy); }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -16px rgba(10, 37, 64, 0.18);
+      border-color: #cdd5df;
+    }
+    .card-art {
+      height: 160px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem;
+    }
+    .art-navy {
+      background: linear-gradient(135deg, #0a2540 0%, #143456 60%, #1d4470 100%);
+      color: rgba(255,255,255,0.78);
+    }
+    .art-mono {
+      background: linear-gradient(135deg, #1f2a37 0%, #2c3a4a 100%);
+      color: rgba(255,255,255,0.78);
+    }
+    .art-graph {
+      background:
+        linear-gradient(135deg, rgba(10,37,64,0.92) 0%, rgba(10,37,64,0.75) 100%),
+        repeating-linear-gradient(0deg, transparent 0 22px, rgba(255,255,255,0.08) 22px 23px),
+        repeating-linear-gradient(90deg, transparent 0 22px, rgba(255,255,255,0.08) 22px 23px);
+      color: rgba(255,255,255,0.85);
+    }
+    .art-vibrant {
+      background: linear-gradient(135deg, #ff7a00 0%, #ff9c3d 55%, #ffc46b 100%);
+      color: #2a1500;
+    }
+    .accent-bar { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; }
+    .navy-bar { width: 36px; height: 3px; background: var(--navy); border-radius: 2px; }
+    .quote-anchor {
+      border-left: 3px solid var(--accent); padding-left: 1rem; color: #1f2a37; font-style: italic;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; opacity: 0.5; pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 80% 0%, rgba(255,122,0,0.10) 0%, transparent 70%),
+        radial-gradient(40% 35% at 0% 100%, rgba(10,37,64,0.06) 0%, transparent 70%);
+    }
+    .nav-link { color: #1f2a37; font-weight: 500; font-size: 0.92rem; }
+    .nav-link:hover { color: var(--navy); }
+    .lock-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.7rem; font-weight: 600; color: #8a4a00;
+      background: var(--accent-soft); padding: 0.18rem 0.5rem; border-radius: 4px;
+      border: 1px solid #ffd6a8;
+    }
+    .stale-flag {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.7rem; font-weight: 600; color: #8a4a00;
+      background: #fff5e6; padding: 0.18rem 0.5rem; border-radius: 4px;
+      border: 1px dashed #f0b878;
+    }
+    .kbd {
+      display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.78rem; background: #f1f4f8; border: 1px solid var(--line);
+      border-radius: 4px; padding: 0.05rem 0.35rem; color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="border-b border-gray-100 bg-white/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-md" style="background: var(--navy); position: relative;">
+          <div style="position:absolute; right:-4px; bottom:-4px; width:10px; height:10px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <span class="font-bold tracking-tight" style="color: var(--navy); font-size: 1.05rem;">Unruly Labs LP</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-accent" style="padding: 0.55rem 1rem; font-size: 0.85rem;">Get an audit</a>
+      </nav>
+      <a href="#contact" class="md:hidden btn btn-accent" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;">Audit</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="hero-grid-bg"></div>
+      <div class="max-w-5xl mx-auto px-6 pt-20 pb-24 relative">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="tag-pill tag-institutional"><span class="dot"></span>Engineering holding company</span>
+          <span class="tag-pill tag-vibrant"><span class="dot"></span>Operating businesses we built</span>
+        </div>
+
+        <h1 class="h-display text-5xl md:text-6xl lg:text-7xl mb-7 max-w-4xl" style="color: var(--navy);">
+          We operate businesses we built.<br/>
+          <span style="color: var(--accent);">From AI infrastructure to games that pop.</span>
+        </h1>
+
+        <p class="body-lead max-w-2xl mb-3" style="font-size: 1.35rem; color: var(--navy); font-weight: 600;">
+          Unruly ideas. Engineered into businesses.
+        </p>
+        <p class="body-lead max-w-2xl mb-3">
+          An engineering holding company running a multi-agent system across consumer products, enterprise services, quantitative research, and productized engagements.
+        </p>
+        <p class="body-lead max-w-2xl mb-10">
+          <span style="color: var(--navy); font-weight: 600;">Productized website-audit offering in pilot.</span>
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#portfolio" class="btn btn-primary">See our work</a>
+          <a href="#contact" class="btn btn-accent">Get an audit</a>
+          <a href="#about" class="btn btn-ghost">Meet the operators</a>
+        </div>
+
+        <div class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm" style="color: var(--ash);">
+          <span>Two operators.</span>
+          <span class="text-gray-300">·</span>
+          <span>A multi-agent system.</span>
+          <span class="text-gray-300">·</span>
+          <span>Work shipped daily.</span>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+
+    <!-- MASTER-BRAND STATEMENT -->
+    <section class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+        <div class="navy-bar mb-6"></div>
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <h2 class="h-section text-2xl md:text-3xl" style="color: var(--navy);">
+              An engineering holding company.
+            </h2>
+            <p class="mt-3 text-sm" style="color: var(--ash);">
+              The master-brand statement.
+            </p>
+          </div>
+          <div class="md:col-span-8 body-prose text-lg">
+            <p>
+              Unruly Labs LP runs an engineering holding company on a multi-agent orchestration system. Two principals coordinate a fleet of role-specific agents that operate the firm's portfolio: a consumer game shipped on Roblox, a quantitative research stack, an enterprise monitoring engagement, a productized audit service line, and a set of content operations. The fleet is governed by a ratified rule system that encodes operating discipline rather than relying on implicit instruction-tuning. Same-day client delivery cycles are an observable property of the system, not a marketing claim. The architecture is currently private. The capability is observable in the work below.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div>
+            <div class="accent-bar mb-5"></div>
+            <h2 class="h-section text-3xl md:text-4xl" style="color: var(--navy);">Portfolio</h2>
+            <p class="body-lead mt-3 max-w-2xl">
+              Four operating businesses across the institutional and consumer lanes. Each runs on the same orchestration substrate.
+            </p>
+          </div>
+          <div class="text-sm" style="color: var(--ash);">
+            <span class="tag-pill tag-institutional"><span class="dot"></span>Institutional lane</span>
+            <span class="tag-pill tag-vibrant ml-2"><span class="dot"></span>Vibrant lane</span>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- CARD 1: Agent-Fleet IP -->
+          <article class="card p-6">
+            <div class="card-art art-graph mb-5">Agent-fleet orchestration</div>
+            <span class="tag-pill tag-institutional"><span class="dot"></span>Tier 1 · Institutional</span>
+            <h3 class="h-section text-xl mt-4 mb-2" style="color: var(--navy);">
+              Agent-fleet orchestration IP
+            </h3>
+            <p class="body-prose">
+              A multi-agent system that runs the firm's portfolio. Two peer planner agents coordinate a fleet of role-specific subordinates that ship paying-client engagements, build consumer products, and run quantitative research under a single ratified rule system. The fleet is not a demonstration. It is the operating substrate of the company.
+            </p>
+            <div class="rule my-5"></div>
+            <p class="text-sm" style="color: var(--ash);">
+              Peer-coordinator orchestration · per-project dedicated agents · ratified rule system · same-day delivery cycles observable in the portfolio below.
+            </p>
+          </article>
+
+          <!-- CARD 2: Enterprise monitoring -->
+          <article class="card p-6">
+            <div class="card-art art-navy mb-5">Enterprise monitoring</div>
+            <span class="tag-pill tag-institutional"><span class="dot"></span>Tier 1 · Institutional</span>
+            <h3 class="h-section text-xl mt-4 mb-2" style="color: var(--navy);">
+              30-site enterprise monitoring
+            </h3>
+            <p class="body-prose">
+              A multi-site enterprise client engaged Unruly Labs LP to verify the operational state of thirty geographically distributed sites and their attached camera infrastructure. The deliverable is a daily-firing binary verdict pipeline: per-camera live-stream verification, per-site recording verification, and a structured report shipped to the client's portal. The first production cycle was delivered on the same day the engagement scope was finalized.
+            </p>
+            <div class="rule my-5"></div>
+            <p class="text-sm" style="color: var(--ash);">
+              Thirty sites · binary verdict · same-day production cycle · engagement active.
+            </p>
+          </article>
+
+          <!-- CARD 3: Forge -->
+          <article class="card p-6">
+            <div class="card-art art-mono mb-5">Forge · website audit</div>
+            <span class="tag-pill tag-institutional"><span class="dot"></span>Tier 1 · Services · In pilot</span>
+            <h3 class="h-section text-xl mt-4 mb-2" style="color: var(--navy);">
+              Forge website-audit offering
+            </h3>
+            <p class="body-prose">
+              A productized website-audit service in pilot. A structured technical assessment of a target site's performance, accessibility, SEO surface, and engineering hygiene — delivered as a written report a buyer can act on without a sales conversation first. Designed as a friction-zero entry into the firm's broader engineering engagements.
+            </p>
+            <div class="rule my-5"></div>
+            <div class="flex items-center justify-between text-sm">
+              <span style="color: var(--ash);">Productized · in pilot · audit-first entry path.</span>
+              <a href="#contact" class="font-semibold" style="color: var(--accent);">Request an audit →</a>
+            </div>
+          </article>
+
+          <!-- CARD 4: clog-busters (VIBRANT) -->
+          <article class="card p-6" style="border-color: #ffd6a8;">
+            <div class="card-art art-vibrant mb-5">clog-busters · Roblox</div>
+            <span class="tag-pill tag-vibrant"><span class="dot"></span>Tier 2 · Vibrant lane</span>
+            <h3 class="h-section text-xl mt-4 mb-2" style="color: var(--navy);">
+              We built a game so fun the leaderboard fights itself.
+            </h3>
+            <p class="body-prose">
+              A Roblox game built by an AI agent fleet — you unclog, things explode, the leaderboard fights itself. Ships under the firm's four-stage done-gate (developed → QA-tested → UAT-completed → shipped); a recent 24-hour sprint produced nine merged pull requests under continuous QA. Currently in pre-commercial-launch.
+            </p>
+            <div class="rule my-5"></div>
+            <div class="flex items-center justify-between text-sm">
+              <span style="color: var(--ash);">Roblox · pre-commercial-launch · daily ship cadence.</span>
+              <span class="font-semibold" style="color: var(--accent);">Play it (coming soon)</span>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="text-xs mt-8" style="color: var(--ash);">
+          Additional research and content operations run inside the portfolio. Surfaced publicly only when operator-ratified.
+        </p>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+        <div class="navy-bar mb-5"></div>
+        <h2 class="h-section text-3xl md:text-4xl" style="color: var(--navy);">Services</h2>
+        <p class="body-lead mt-3 max-w-2xl mb-12">
+          Three productized lines, each backed by the orchestration substrate that operates the firm's own portfolio.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <div class="card p-7">
+            <div class="text-3xl font-bold" style="color: var(--navy);">01</div>
+            <h3 class="h-section text-lg mt-4 mb-3" style="color: var(--navy);">
+              Agent-fleet operations
+            </h3>
+            <p class="body-prose text-sm">
+              Multi-agent orchestration design and operation for firms running engineering and operating work across multiple domains. Peer-coordinator architecture, per-project dedicated agents, ratified rule systems, observable delivery cadence.
+            </p>
+          </div>
+
+          <div class="card p-7">
+            <div class="text-3xl font-bold" style="color: var(--navy);">02</div>
+            <h3 class="h-section text-lg mt-4 mb-3" style="color: var(--navy);">
+              Vision-LLM monitoring
+            </h3>
+            <p class="body-prose text-sm">
+              Daily-cadence camera and site monitoring pipelines built on vision-LLM verdict rendering. Binary, per-row, auditable output. Built and proven in active enterprise engagement.
+            </p>
+          </div>
+
+          <div class="card p-7">
+            <div class="text-3xl font-bold" style="color: var(--navy);">03</div>
+            <h3 class="h-section text-lg mt-4 mb-3" style="color: var(--navy);">
+              Website-audit (Forge)
+            </h3>
+            <p class="body-prose text-sm">
+              A productized technical audit: performance, accessibility, SEO surface, and engineering-hygiene assessment delivered as a written report. Currently in pilot. A non-sales entry path into the firm's broader engagements.
+            </p>
+            <a href="#contact" class="inline-block mt-4 font-semibold text-sm" style="color: var(--accent);">
+              Request an audit →
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+        <div class="accent-bar mb-5"></div>
+        <h2 class="h-section text-3xl md:text-4xl" style="color: var(--navy);">About Unruly Labs LP</h2>
+        <p class="body-lead mt-3 max-w-2xl">
+          A two-principal operating company running an agent-fleet-orchestrated portfolio.
+        </p>
+
+        <!-- Founder narrative -->
+        <div class="mt-12 grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <h3 class="h-section text-xl" style="color: var(--navy);">The pairing</h3>
+            <p class="text-sm mt-2" style="color: var(--ash);">Why two principals, one operating model.</p>
+          </div>
+          <div class="md:col-span-8 body-prose">
+            <p>
+              Unruly Labs LP is a two-principal operating company. Ryan Dhookaran and Darsan Dinaram run the firm jointly, with Ryan also seated as Controller — the role that holds budget commitment, scope ratification, and locked-rule sign-off authority. The firm operates a portfolio of projects under one consolidated operating model: an agent-fleet-orchestrated build cadence in which both principals direct work across the portfolio rather than each owning a separate vertical.
+            </p>
+            <p class="mt-4">
+              The two principals bring distinct operating disciplines. Ryan brings a decade of product-management depth out of financial-services operating environments. Darsan brings five-plus years of enterprise IT systems administration, Microsoft 365 collaboration platform operations, and identity-and-security work — currently supporting a 100,000+ user healthcare environment as a Tier III Collaboration Analyst. The pairing is deliberate: one principal brings the product cycle and financial-services program-management governance; the other brings enterprise systems administration, collaboration-platform operations, and the troubleshooting discipline of a Tier II/III support engineer. Together they direct the firm's agent fleet across the portfolio.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule my-14"></div>
+
+        <!-- Ryan bio -->
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <div class="card-art art-navy" style="height: 220px;">RD</div>
+            <div class="mt-4">
+              <h3 class="h-section text-xl" style="color: var(--navy);">Ryan Dhookaran</h3>
+              <p class="text-sm mt-1" style="color: var(--ash);">
+                <span class="lock-badge">[OPERATOR-PENDING TITLE]</span>
+              </p>
+              <p class="text-sm mt-1" style="color: var(--ash);">Controller</p>
+              <p class="text-xs mt-3" style="color: var(--ash);">
+                linkedin.com/in/ryandhookaran
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-8 body-prose">
+            <p>
+              Ryan brings a decade of product-management leadership out of financial-services operating environments. Most recently he served as Senior Product Owner at BHG Financial (April 2022 to November 2023), where he led the product vision and strategy for a SAAS Point-of-Sale Financing B2B2C program. His delivery slate at BHG included the Nalu Pay It Forward charitable-donation-per-loan feature, the TriParty Accounting Reconciliation portal, and Loan Servicing Platform improvements that drove a 35% LTV increase. He also managed the firm's Payment Processing System integration across payment gateways and NACHA processes, and led production support across 8,000 customer accounts toward a clean FDIC audit. Ryan was recognized with the 2022 Global Product Runner Award.
+            </p>
+            <p class="mt-4">
+              Prior to BHG, Ryan spent four-and-a-half years at BNY Mellon. As VP and Engineering Project Manager (February 2021 to April 2022) he owned the product development life cycle for a new Middle Office Platform delivering a $100M business milestone, coordinating nine application teams across investment-trade capture and lifecycle, investment accounting, and investment cash settlements, and leading the firm's Agile transformation. Earlier BNY Mellon roles spanned Middle Office Client Implementation (VP and Lead Analyst, 2019 to 2021) and Senior Derivatives Analyst (2017 to 2019).
+            </p>
+            <p class="mt-4">
+              Ryan holds an M.B.A. in Finance from Nova Southeastern University and a B.A. in Economics from the University of South Florida. He holds Scrum Alliance CSPO and CSM, PMI CAPM, and is in-progress on SAFE 6.0 POPM.
+            </p>
+            <p class="mt-4">
+              At Unruly Labs LP, Ryan operates as the firm's Controller and one of two peer principals <span class="lock-badge">[OPERATOR-PENDING TITLE]</span>. He signs off on budget commitments, scope ratification, and the firm's locked operating rules.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule my-14"></div>
+
+        <!-- Darsan bio -->
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-4">
+            <div class="card-art art-navy" style="height: 220px;">DD</div>
+            <div class="mt-4">
+              <h3 class="h-section text-xl" style="color: var(--navy);">Darsan Dinaram</h3>
+              <p class="text-sm mt-1" style="color: var(--ash);">
+                <span class="lock-badge">[OPERATOR-PENDING TITLE]</span>
+              </p>
+              <p class="text-xs mt-3" style="color: var(--ash);">
+                Ocoee, FL · ddinaram@gmail.com
+              </p>
+            </div>
+          </div>
+          <div class="md:col-span-8 body-prose">
+            <p>
+              Darsan brings five-plus years of enterprise IT systems administration, Microsoft 365 collaboration platform expertise, and identity-and-security operations to the firm. Since November 2025 he has served as a Tier III Collaboration Analyst at AdventHealth, supporting a 100,000+ user environment across Microsoft Teams, SharePoint, Exchange Online, and Outlook. His Tier II/III work covers root-cause troubleshooting across user access, permissions, configuration, and Active Directory dependencies; he manages forty to fifty ServiceNow tickets daily while maintaining SLA discipline, and authors user-facing documentation, workflow notes, and standard troubleshooting procedures.
+            </p>
+            <p class="mt-4">
+              Prior to AdventHealth, Darsan served as a System Administrator at JST Power Equipment (April 2025 to September 2025), where he led the firm's Microsoft cloud modernization — converting from legacy on-prem infrastructure to a hybrid Azure / Microsoft 365 model. His delivery slate at JST included Exchange Online email security implementation, SharePoint migration of business file shares, Windows Autopilot endpoint provisioning, Microsoft Defender for Endpoint configuration, and infrastructure improvements that produced cost savings equivalent to approximately thirty percent of the annual IT budget.
+            </p>
+            <p class="mt-4">
+              Earlier, Darsan held a System Administrator role at Acousti Engineering (November 2023 to April 2025), where he administered Microsoft 365, SharePoint, Teams, Exchange, Azure resources, and endpoint management tools; led a Salesforce CRM rollout; and maintained security posture across Azure Policy, Mimecast email filtering, and network controls. He served as a Client Engineer at ComputaCenter / Synchrony Financial (August 2021 to November 2023), delivering Tier II endpoint and application support for eighteen thousand users with strong SLA adherence, and serving as Apple-support lead for escalated macOS issues. He came up through enterprise technical support at Alorica / Dell EMC (December 2020 to August 2021).
+            </p>
+            <p class="mt-4">
+              Darsan holds the Microsoft Azure Fundamentals (AZ-900) certification. He completed a Cybersecurity Certificate program at the University of Central Florida and holds an Associate of Science from Queensborough Community College.
+            </p>
+            <p class="mt-4">
+              At Unruly Labs LP, Darsan operates as a peer principal <span class="lock-badge">[OPERATOR-PENDING TITLE]</span> alongside Ryan. He brings enterprise IT systems administration discipline, collaboration-platform operations expertise, and identity-and-security operational know-how to the firm's portfolio.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-white">
+      <div class="max-w-5xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-12 gap-10 items-start">
+          <div class="md:col-span-6">
+            <div class="accent-bar mb-5"></div>
+            <h2 class="h-display text-4xl md:text-5xl" style="color: var(--navy);">
+              Start with an audit.
+            </h2>
+            <p class="body-lead mt-5">
+              Forge — our productized website-audit offering — is in pilot. The fastest way to see how the firm operates is to receive one.
+            </p>
+            <p class="body-lead mt-3">
+              For all other inquiries — engagements, partnerships, capital, hiring — reach the operators directly.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="mailto:ops@unrulylabslp.com?subject=Forge%20website-audit%20request" class="btn btn-accent">
+                Request an audit
+              </a>
+              <a href="mailto:ops@unrulylabslp.com" class="btn btn-primary">
+                Contact the operators
+              </a>
+            </div>
+          </div>
+
+          <div class="md:col-span-6">
+            <div class="card p-7">
+              <div class="text-xs font-semibold uppercase tracking-widest" style="color: var(--ash);">Contact</div>
+              <div class="mt-3">
+                <div class="text-sm" style="color: var(--ash);">Operations</div>
+                <a href="mailto:ops@unrulylabslp.com" class="font-semibold text-lg" style="color: var(--navy);">
+                  ops@unrulylabslp.com
+                </a>
+              </div>
+              <div class="rule my-5"></div>
+              <div>
+                <div class="text-sm" style="color: var(--ash);">Intake form</div>
+                <div class="mt-2 px-4 py-3 rounded-md border border-dashed" style="border-color: var(--line); color: var(--ash);">
+                  <span class="kbd">embed</span> Tally intake form — placeholder. Replace at v0.2.
+                </div>
+              </div>
+              <div class="rule my-5"></div>
+              <p class="text-xs" style="color: var(--ash);">
+                We respond to all qualified inquiries inside one business day. Same-day cycles are an observable property of the operating system.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer style="background: var(--navy); color: rgba(255,255,255,0.78);">
+      <div class="max-w-5xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-md bg-white/15 relative">
+                <div style="position:absolute; right:-3px; bottom:-3px; width:9px; height:9px; background: var(--accent); border-radius: 2px;"></div>
+              </div>
+              <span class="font-bold tracking-tight text-white text-base">Unruly Labs LP</span>
+            </div>
+            <p class="text-sm mt-3 max-w-md text-white/65">
+              <span class="text-white/90 font-semibold">Unruly ideas. Engineered into businesses.</span><br/>
+              An engineering holding company operating across AI infrastructure, enterprise services, quantitative research, and consumer products.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm">
+            <a href="#portfolio" class="text-white/75 hover:text-white">Portfolio</a>
+            <a href="#services" class="text-white/75 hover:text-white">Services</a>
+            <a href="#about" class="text-white/75 hover:text-white">About</a>
+            <a href="#contact" class="text-white/75 hover:text-white">Contact</a>
+            <a href="mailto:ops@unrulylabslp.com" class="text-white/75 hover:text-white">ops@unrulylabslp.com</a>
+          </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-white/55">
+          <div>&copy; 2026 Unruly Labs LP. All rights reserved.</div>
+          <div>Aurora POC v0.2.1 · clickable preview · not yet a public site.</div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
