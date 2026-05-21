@@ -3,524 +3,830 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unruly Labs LP – Six companies. One chassis. Zero outside capital.</title>
-  <meta name="description" content="Compound operating company. Two principals run a multi-agent AI fleet across six businesses: a Roblox game, a quant trading stack, a content engine, enterprise monitoring, and a 24-72h website-build line." />
-  <meta name="theme-color" content="#0a2540" />
+  <title>Unruly Labs LP · The AI build shop. 24 to 72 hours, scope to production.</title>
+  <meta name="description" content="An AI-native build shop. Production AI across web, monitoring, content, and quant systems. Two principals, a multi-agent fleet, 24 to 72 hour delivery." />
+  <meta name="theme-color" content="#0a0e1a" />
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Unruly Labs LP – Six companies. One chassis. Zero outside capital." />
-  <meta property="og:description" content="Two principals. A multi-agent AI fleet. One operating system running six businesses." />
+  <meta property="og:title" content="Unruly Labs LP · The AI build shop." />
+  <meta property="og:description" content="Production AI in days, not quarters. Web. Monitoring. Content. Quant. Two principals plus a multi-agent fleet." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/" />
-  <meta property="og:image" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/og-image.svg" />
+  <meta property="og:url" content="https://unrulylabslp.com/" />
+  <meta property="og:image" content="https://unrulylabslp.com/og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Unruly Labs LP. Six companies. One chassis. Zero outside capital." />
+  <meta property="og:image:alt" content="Unruly Labs LP. The AI build shop." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Unruly Labs LP – Six companies. One chassis. Zero outside capital." />
-  <meta name="twitter:description" content="Two principals. A multi-agent AI fleet. One operating system running six businesses." />
-  <meta name="twitter:image" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/og-image.svg" />
-  <meta name="twitter:image:alt" content="Unruly Labs LP. Six companies. One chassis. Zero outside capital." />
+  <meta name="twitter:title" content="Unruly Labs LP · The AI build shop." />
+  <meta name="twitter:description" content="Production AI in days, not quarters. Two principals plus a multi-agent fleet." />
+  <meta name="twitter:image" content="https://unrulylabslp.com/og-image.svg" />
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Google Fonts: serif display + sans body (preconnect for LCP) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ---------- INLINE UTILITY CSS (replaces Tailwind CDN runtime; ~5KB vs ~290KB JS render-block) ---------- */
-    /* Reset + box-sizing */
-    *, *::before, *::after { box-sizing: border-box; }
-    body, h1, h2, h3, h4, p, ul, figure { margin: 0; }
-    ul { padding: 0; }
-    a { color: inherit; text-decoration: none; }
-
-    /* Layout primitives */
-    .relative { position: relative; }
-    .absolute { position: absolute; }
-    .top-0 { top: 0; }
-    .left-0 { left: 0; }
-    .right-0 { right: 0; }
-    .z-40 { z-index: 40; }
-    .hidden { display: none; }
-    .block { display: block; }
-    .flex { display: flex; }
-    .grid { display: grid; }
-    .items-center { align-items: center; }
-    .items-end { align-items: flex-end; }
-    .justify-between { justify-content: space-between; }
-    .justify-center { justify-content: center; }
-    .flex-col { flex-direction: column; }
-    .flex-wrap { flex-wrap: wrap; }
-    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-
-    /* Spacing */
-    .gap-2\.5 { gap: 0.625rem; }
-    .gap-3 { gap: 0.75rem; }
-    .gap-4 { gap: 1rem; }
-    .gap-6 { gap: 1.5rem; }
-    .gap-8 { gap: 2rem; }
-    .gap-10 { gap: 2.5rem; }
-    .gap-x-7 { column-gap: 1.75rem; }
-    .gap-y-4 { row-gap: 1rem; }
-
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .mt-1\.5 { margin-top: 0.375rem; }
-    .mt-2 { margin-top: 0.5rem; }
-    .mt-5 { margin-top: 1.25rem; }
-    .mt-6 { margin-top: 1.5rem; }
-    .mt-7 { margin-top: 1.75rem; }
-    .mt-8 { margin-top: 2rem; }
-    .mt-10 { margin-top: 2.5rem; }
-    .mt-14 { margin-top: 3.5rem; }
-
-    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-    .py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-    .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-    .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
-    .pt-6 { padding-top: 1.5rem; }
-    .pt-32 { padding-top: 8rem; }
-    .pb-20 { padding-bottom: 5rem; }
-
-    .border-t { border-top: 1px solid; }
-    .border-white\/10 { border-color: rgba(255,255,255,0.1); }
-
-    /* Sizing */
-    .w-7 { width: 1.75rem; }
-    .w-8 { width: 2rem; }
-    .h-7 { height: 1.75rem; }
-    .h-8 { height: 2rem; }
-    .max-w-xl { max-width: 36rem; }
-    .max-w-3xl { max-width: 48rem; }
-    .max-w-6xl { max-width: 72rem; }
-
-    .rounded-md { border-radius: 0.375rem; }
-
-    /* Typography */
-    .font-bold { font-weight: 700; }
-    .font-semibold { font-weight: 600; }
-    .tracking-tight { letter-spacing: -0.025em; }
-    .text-xs { font-size: 0.75rem; line-height: 1rem; }
-    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
-    .text-base { font-size: 1rem; line-height: 1.5rem; }
-    .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-    .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-    .text-center { text-align: center; }
-
-    /* Colors */
-    .bg-white { background-color: #fff; }
-    .bg-gray-50 { background-color: #f9fafb; }
-    .text-white { color: #fff; }
-    .text-white\/40 { color: rgba(255,255,255,0.4); }
-
-    /* Responsive: md (>=768px) */
-    @media (min-width: 768px) {
-      .md\:flex { display: flex; }
-      .md\:hidden { display: none; }
-      .md\:flex-row { flex-direction: row; }
-      .md\:items-center { align-items: center; }
-      .md\:justify-between { justify-content: space-between; }
-      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .md\:pt-40 { padding-top: 10rem; }
-      .md\:pb-28 { padding-bottom: 7rem; }
-      .md\:py-28 { padding-top: 7rem; padding-bottom: 7rem; }
-      .md\:text-right { text-align: right; }
-    }
-
-    /* Responsive: lg (>=1024px) */
-    @media (min-width: 1024px) {
-      .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-      .lg\:col-span-5 { grid-column: span 5 / span 5; }
-      .lg\:col-span-7 { grid-column: span 7 / span 7; }
-    }
-
-    /* ---------- SR-ONLY (accessibility skip-link) ---------- */
-    .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-    .focus\:not-sr-only:focus {
-      position: fixed;
-      top: 0.75rem; left: 0.75rem;
-      z-index: 100;
-      width: auto; height: auto;
-      padding: 0.75rem 1.1rem;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-      white-space: normal;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px -10px rgba(255,122,0,0.6);
-      outline: 2px solid #fff;
-      outline-offset: 2px;
-    }
-
-    /* ---------- DESIGN TOKENS + COMPONENTS ---------- */
-    :root {
-      --navy: #0a2540;
-      --navy-deep: #061a2f;
-      --navy-soft: #13314f;
-      --ink: #0d1b2a;
-      --ash: #5a6b7b;
-      --paper: #f7f8fa;
-      --line: #e4e8ee;
-      --accent: #ff7a00;
-      --accent-hot: #ff5a1f;
-      --accent-soft: #ffe9d6;
-    }
-
-    * { -webkit-tap-highlight-color: transparent; }
+    /* ============================================================
+       RESET + TOKENS
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
+    body, h1, h2, h3, h4, p, ul, figure, blockquote { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
+
+    :root {
+      /* Monochrome base — Linear/Anthropic restraint */
+      --ink: #0a0e1a;
+      --ink-2: #131826;
+      --ink-3: #1c2333;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --text-0: #ffffff;
+      --text-1: rgba(255,255,255,0.92);
+      --text-2: rgba(255,255,255,0.66);
+      --text-3: rgba(255,255,255,0.46);
+      --text-4: rgba(255,255,255,0.30);
+
+      /* Light surface for inversion sections */
+      --paper: #f7f7f5;
+      --paper-2: #ececea;
+      --paper-line: rgba(10,14,26,0.10);
+      --on-paper-0: #0a0e1a;
+      --on-paper-1: rgba(10,14,26,0.78);
+      --on-paper-2: rgba(10,14,26,0.55);
+
+      /* Single accent — warm amber, used sparingly */
+      --accent: #f59e0b;
+      --accent-hot: #fbbf24;
+      --accent-glow: rgba(245,158,11,0.35);
+
+      /* Type scale */
+      --serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
+      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
     body {
-      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: var(--ink);
-      background: #fff;
+      font-family: var(--sans);
+      background: var(--ink);
+      color: var(--text-1);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      font-feature-settings: "ss01", "cv01", "cv11";
       overflow-x: hidden;
+      line-height: 1.5;
     }
-    h1, h2, h3, h4 { letter-spacing: -0.02em; }
-    .h-display { font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; }
-    .h-section { font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
-    .body-lead { font-size: 1.125rem; line-height: 1.6; color: var(--ash); }
-    .body-prose { line-height: 1.7; color: #1f2a37; }
-    .rule { height: 1px; background: var(--line); }
 
-    /* ---------- HERO ---------- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    @media (min-width: 768px) { .container { padding: 0 2rem; } }
+
+    /* ============================================================
+       ACCESSIBILITY
+       ============================================================ */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+    .skip-link:focus {
+      position: fixed; top: 0.75rem; left: 0.75rem; z-index: 100;
+      width: auto; height: auto; padding: 0.65rem 1rem; clip: auto;
+      background: var(--accent); color: var(--ink); font-weight: 600;
+      border-radius: 8px; outline: 2px solid #fff; outline-offset: 2px;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .eyebrow-accent {
+      color: var(--accent);
+    }
+
+    .display {
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      font-optical-sizing: auto;
+    }
+    .display em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+
+    .section-h {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .lede {
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      line-height: 1.55;
+      color: var(--text-2);
+      max-width: 58ch;
+    }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      transition: backdrop-filter 0.3s var(--ease-out), background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+      border-bottom: 1px solid transparent;
+    }
+    .nav.is-scrolled {
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      background: rgba(10,14,26,0.72);
+      border-bottom-color: var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 0;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 600; font-size: 0.95rem; letter-spacing: -0.01em;
+      color: var(--text-0);
+    }
+    .nav-mark {
+      width: 22px; height: 22px;
+      border-radius: 5px;
+      background: var(--text-0);
+      position: relative;
+    }
+    .nav-mark::after {
+      content: "";
+      position: absolute;
+      right: -3px; bottom: -3px;
+      width: 9px; height: 9px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .nav-links {
+      display: none;
+      align-items: center; gap: 2rem;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } .nav-cta-mobile { display: none; } }
+    .nav-cta-mobile { display: inline-flex; }
+    .nav-link {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      font-weight: 500;
+      transition: color 0.15s var(--ease-out);
+    }
+    .nav-link:hover { color: var(--text-0); }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.4rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.15rem;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: transform 0.15s var(--ease-out), background 0.2s var(--ease-out), border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), box-shadow 0.25s var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--text-0);
+      color: var(--ink);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px -16px var(--accent-glow);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-1);
+      border-color: var(--line-strong);
+    }
+    .btn-ghost:hover {
+      border-color: var(--text-1);
+      background: rgba(255,255,255,0.04);
+    }
+    .btn-lg {
+      padding: 0.95rem 1.5rem;
+      font-size: 0.95rem;
+    }
+    .arr {
+      display: inline-block;
+      transition: transform 0.18s var(--ease-out);
+    }
+    .btn:hover .arr { transform: translateX(3px); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
     .hero {
       position: relative;
-      background: radial-gradient(120% 80% at 50% 0%, #0f2c4d 0%, #0a2540 45%, #061a2f 100%);
-      color: #f4f6fa;
+      padding: 9rem 0 6rem;
       overflow: hidden;
       isolation: isolate;
     }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 80%);
-      -webkit-mask-image: radial-gradient(80% 60% at 50% 30%, #000 0%, transparent 80%);
-      pointer-events: none;
+    @media (min-width: 768px) {
+      .hero { padding: 11rem 0 8rem; }
     }
-    .hero-glow {
-      position: absolute; inset: -10%;
+
+    /* Beam effect: subtle conic gradient + radial highlight */
+    .hero-beam {
+      position: absolute;
+      inset: -20% -10% 0 -10%;
       background:
-        radial-gradient(35% 35% at 18% 30%, rgba(255,122,0,0.22) 0%, transparent 60%),
-        radial-gradient(40% 40% at 82% 70%, rgba(29,68,112,0.55) 0%, transparent 60%);
+        radial-gradient(60% 50% at 50% 0%, rgba(245,158,11,0.10) 0%, transparent 70%),
+        radial-gradient(40% 40% at 20% 30%, rgba(99,102,241,0.08) 0%, transparent 70%),
+        radial-gradient(40% 40% at 80% 20%, rgba(236,72,153,0.06) 0%, transparent 70%);
       pointer-events: none;
-      filter: blur(20px);
-      will-change: transform;
-      animation: drift 24s ease-in-out infinite alternate;
+      z-index: -1;
     }
-    @keyframes drift {
-      0%   { transform: translate3d(0, 0, 0) scale(1); }
-      100% { transform: translate3d(-3%, 2%, 0) scale(1.06); }
+
+    /* Grid texture */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(70% 50% at 50% 30%, #000 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(70% 50% at 50% 30%, #000 0%, transparent 75%);
+      pointer-events: none;
+      z-index: -1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-glow { animation: none; }
-    }
+
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em;
-      padding: 0.4rem 0.8rem; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.78);
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(8px);
     }
-    .hero-eyebrow .pulse {
-      width: 7px; height: 7px; border-radius: 999px; background: var(--accent);
-      box-shadow: 0 0 0 0 rgba(255,122,0,0.7);
-      animation: pulse 2.4s infinite;
-    }
-    @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(255,122,0,0.6); }
-      70%  { box-shadow: 0 0 0 10px rgba(255,122,0,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,122,0,0); }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
     }
 
     .hero-h1 {
-      font-size: clamp(2.6rem, 6.4vw, 5.6rem);
-      font-weight: 800;
-      line-height: 1.02;
-      letter-spacing: -0.045em;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      margin-top: 1.5rem;
+      max-width: 18ch;
     }
-    .hero-h1 .num {
-      background: linear-gradient(135deg, #ff7a00 0%, #ff9c3d 60%, #ffd58a 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero-sub {
-      color: rgba(255,255,255,0.78);
-      font-size: clamp(1rem, 1.6vw, 1.2rem);
-      line-height: 1.55;
-      max-width: 56ch;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      font-weight: 600; font-size: 0.95rem; padding: 0.95rem 1.6rem; border-radius: 8px;
-      transition: transform .12s ease, background .15s ease, border-color .15s ease, color .15s ease, box-shadow .2s ease;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 8px 24px -10px rgba(255,122,0,0.6);
-    }
-    .btn-primary:hover {
-      background: var(--accent-hot);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px -10px rgba(255,90,31,0.7);
-    }
-    .text-link {
-      color: rgba(255,255,255,0.82);
-      font-weight: 500; font-size: 0.95rem;
-      border-bottom: 1px solid rgba(255,255,255,0.22);
-      padding-bottom: 2px;
-      transition: color .15s ease, border-color .15s ease;
-    }
-    .text-link:hover { color: #fff; border-color: var(--accent); }
 
-    /* ---------- PROVE-IT STRIP ---------- */
-    .prove-strip {
-      background: #061a2f;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+      line-height: 1.55;
+      color: var(--text-2);
+      margin-top: 1.75rem;
+      max-width: 58ch;
     }
-    .stat-num {
-      font-weight: 800;
-      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-      letter-spacing: -0.03em;
-      background: linear-gradient(180deg, #ffffff 0%, #c9d4e4 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+
+    .hero-cta {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.9rem;
+      margin-top: 2.5rem;
     }
-    .stat-label {
-      color: rgba(255,255,255,0.58);
-      font-size: 0.78rem;
+
+    .hero-meta {
+      display: flex; flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta-cell {
+      min-width: 140px;
+    }
+    .hero-meta-num {
+      font-family: var(--serif);
       font-weight: 500;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: -0.025em;
+      line-height: 1;
+      color: var(--text-0);
+    }
+    .hero-meta-num small {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-3);
+      margin-left: 0.25rem;
+    }
+    .hero-meta-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      color: var(--text-3);
       margin-top: 0.45rem;
     }
-    .stat-cell {
-      padding: 1.4rem 1rem;
-      border-right: 1px solid rgba(255,255,255,0.06);
+
+    /* ============================================================
+       SECTION DIVIDER (light section)
+       ============================================================ */
+    .section-light {
+      background: var(--paper);
+      color: var(--on-paper-0);
+      position: relative;
     }
-    .stat-cell:last-child { border-right: none; }
-    @media (max-width: 768px) {
-      .stat-cell { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .stat-cell:last-child { border-bottom: none; }
+    .section-light .eyebrow { color: var(--on-paper-2); }
+    .section-light .eyebrow-accent { color: #b45309; }
+    .section-light .lede { color: var(--on-paper-1); }
+
+    /* ============================================================
+       SERVICES (bento layout)
+       ============================================================ */
+    .services {
+      padding: 6rem 0;
+    }
+    @media (min-width: 768px) {
+      .services { padding: 8rem 0; }
     }
 
-    /* ---------- PORTFOLIO ---------- */
+    .services-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    @media (min-width: 900px) {
+      .services-head {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .bento {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .bento {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(220px, auto);
+        gap: 1.25rem;
+      }
+    }
+
     .tile {
       position: relative;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 1.8rem;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      background: #ffffff;
+      border: 1px solid var(--paper-line);
+      border-radius: 18px;
+      padding: 1.75rem;
       overflow: hidden;
+      transition: transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out), box-shadow 0.3s var(--ease-out);
+      display: flex; flex-direction: column;
       isolation: isolate;
     }
     .tile::before {
       content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,122,0,0.06) 0%, transparent 50%);
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 80% at 0% 0%, rgba(245,158,11,0.06) 0%, transparent 50%);
       opacity: 0;
-      transition: opacity .25s ease;
+      transition: opacity 0.3s var(--ease-out);
       z-index: -1;
     }
     .tile:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -20px rgba(10, 37, 64, 0.25);
-      border-color: #cdd5df;
+      transform: translateY(-3px);
+      border-color: rgba(10,14,26,0.18);
+      box-shadow: 0 24px 48px -28px rgba(10,14,26,0.25);
     }
     .tile:hover::before { opacity: 1; }
+
+    /* Bento sizing — desktop only */
+    @media (min-width: 768px) {
+      .tile-wide { grid-column: span 4; }
+      .tile-std { grid-column: span 2; }
+      .tile-half { grid-column: span 3; }
+    }
+
     .tile-kicker {
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
+      color: #b45309;
     }
     .tile-title {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.45rem;
       letter-spacing: -0.025em;
-      line-height: 1.2;
-      color: var(--navy);
-      margin: 0.5rem 0 0.6rem;
+      line-height: 1.15;
+      color: var(--on-paper-0);
+      margin: 0.65rem 0 0.7rem;
     }
-    .tile-pitch {
-      color: #1f2a37;
+    .tile-wide .tile-title { font-size: 1.7rem; }
+
+    .tile-body {
+      color: var(--on-paper-1);
+      font-size: 0.97rem;
       line-height: 1.55;
-      font-size: 0.98rem;
-      margin-bottom: 1rem;
+      flex: 1;
     }
-    .tile-bullets {
-      list-style: none; padding: 0; margin: 0 0 1.2rem;
+    .tile-list {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
-    .tile-bullets li {
+    .tile-list li {
       position: relative;
-      padding-left: 1.25rem;
-      color: #2c3a4a;
-      font-size: 0.9rem;
-      line-height: 1.55;
-      margin-bottom: 0.35rem;
+      padding-left: 1.1rem;
+      font-size: 0.88rem;
+      color: var(--on-paper-1);
+      line-height: 1.5;
     }
-    .tile-bullets li::before {
+    .tile-list li::before {
       content: "";
       position: absolute;
-      left: 0; top: 0.55rem;
-      width: 6px; height: 6px;
+      left: 0; top: 0.6rem;
+      width: 5px; height: 5px;
       background: var(--accent);
       border-radius: 1px;
     }
     .tile-cta {
-      font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      margin-top: 1.4rem;
+      font-size: 0.88rem;
       font-weight: 600;
-      color: var(--navy);
-      border-bottom: 1px solid var(--line);
+      color: var(--on-paper-0);
       padding-bottom: 2px;
-      transition: color .15s ease, border-color .15s ease;
+      border-bottom: 1px solid var(--paper-line);
+      transition: color 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
+      align-self: flex-start;
     }
-    .tile-cta:hover { color: var(--accent); border-color: var(--accent); }
-    .tile-cta .arr { transition: transform .15s ease; display: inline-block; }
-    .tile-cta:hover .arr { transform: translateX(4px); }
+    .tile-cta:hover { color: #b45309; border-color: #b45309; }
+    .tile-cta .arr { transition: transform 0.15s var(--ease-out); }
+    .tile-cta:hover .arr { transform: translateX(3px); }
 
-    /* ---------- OPERATORS ---------- */
-    .op-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-    }
-    .op-card:hover {
-      transform: translateY(-3px);
-      border-color: #cdd5df;
-      box-shadow: 0 16px 32px -20px rgba(10, 37, 64, 0.2);
-    }
-    .op-avatar {
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
-      color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.15rem; letter-spacing: 0.04em;
-    }
-    .op-pull {
-      border-left: 3px solid var(--accent);
-      padding: 0.4rem 0 0.4rem 1rem;
-      color: #1f2a37;
-      font-style: italic;
-      font-size: 0.95rem;
-      margin: 1.1rem 0;
-    }
-
-    /* ---------- CTA SECTION ---------- */
-    .cta-band {
-      background: linear-gradient(135deg, #0a2540 0%, #13314f 100%);
-      color: #fff;
+    /* ============================================================
+       PROCESS (how we work)
+       ============================================================ */
+    .process {
+      padding: 6rem 0;
+      background: var(--ink-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       position: relative;
       overflow: hidden;
-      isolation: isolate;
     }
-    .cta-band::after {
-      content: "";
+    @media (min-width: 768px) {
+      .process { padding: 8rem 0; }
+    }
+
+    .process-head {
+      max-width: 720px;
+      margin-bottom: 4rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .process-steps { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    }
+
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.75rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.005) 100%);
+      transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+    }
+    .step:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+    }
+    .step-num {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+    .step-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin: 0.6rem 0 0.6rem;
+      color: var(--text-0);
+    }
+    .step-body {
+      color: var(--text-2);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+    .step-time {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ============================================================
+       OPERATORS
+       ============================================================ */
+    .operators {
+      padding: 6rem 0;
+    }
+    @media (min-width: 768px) {
+      .operators { padding: 8rem 0; }
+    }
+
+    .operators-head {
+      max-width: 720px;
+      margin-bottom: 4rem;
+    }
+
+    .op-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .op-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .op-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.005) 100%);
+      transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .op-card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+    }
+    .op-head {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .op-mark {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--ink-3) 0%, var(--ink-2) 100%);
+      border: 1px solid var(--line-strong);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: var(--text-1);
+    }
+    .op-name {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+      color: var(--text-0);
+    }
+    .op-role {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+    }
+    .op-bio {
+      color: var(--text-2);
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+    .op-bio em { color: var(--text-1); font-style: italic; }
+    .op-pull {
+      border-left: 2px solid var(--accent);
+      padding: 0.2rem 0 0.2rem 1rem;
+      margin: 1.2rem 0;
+      color: var(--text-1);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+    .op-creds {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .fleet-note {
+      max-width: 720px;
+      margin-top: 3rem;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      color: var(--text-2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .fleet-note strong { color: var(--text-0); font-weight: 600; }
+
+    /* ============================================================
+       CTA BAND
+       ============================================================ */
+    .cta {
+      padding: 6rem 0;
+      background: var(--ink-2);
+      border-top: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .cta { padding: 8rem 0; }
+    }
+    .cta-glow {
       position: absolute;
-      right: -20%; top: -50%;
-      width: 80%; height: 200%;
-      background: radial-gradient(closest-side, rgba(255,122,0,0.18) 0%, transparent 80%);
+      right: -10%; bottom: -50%;
+      width: 60%; height: 200%;
+      background: radial-gradient(closest-side, rgba(245,158,11,0.10) 0%, transparent 75%);
       pointer-events: none;
-      z-index: -1;
+      z-index: 0;
     }
-    .cta-h2 {
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
-      font-weight: 800;
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: end;
+    }
+    @media (min-width: 900px) {
+      .cta-inner { grid-template-columns: 1.4fr 1fr; gap: 4rem; }
+    }
+    .cta-h {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(2rem, 4.6vw, 3.4rem);
       letter-spacing: -0.035em;
       line-height: 1.05;
     }
-
-    /* ---------- NAV ---------- */
-    .nav-link {
-      color: rgba(255,255,255,0.78);
-      font-weight: 500;
-      font-size: 0.92rem;
-      transition: color .15s ease;
+    .cta-sub {
+      color: var(--text-2);
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-top: 1.25rem;
+      max-width: 52ch;
     }
-    .nav-link:hover { color: #fff; }
+    .cta-actions {
+      display: flex; flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .cta-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+    .cta-meta a { color: var(--text-1); border-bottom: 1px solid var(--line-strong); }
+    .cta-meta a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* ---------- REVEAL ANIMATION ---------- */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      padding: 3rem 0 2.5rem;
+      border-top: 1px solid var(--line);
+      background: var(--ink);
+    }
+    .footer-inner {
+      display: flex; flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-size: 0.85rem; color: var(--text-1); font-weight: 600;
+    }
+    .footer-mark {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.12);
+      position: relative;
+    }
+    .footer-mark::after {
+      content: "";
+      position: absolute;
+      right: -2px; bottom: -2px;
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 1.5px;
+    }
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-3);
+      letter-spacing: 0.06em;
+    }
+    .footer-meta a { color: var(--text-2); border-bottom: 1px solid var(--line); }
+    .footer-meta a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ============================================================
+       SCROLL REVEAL (IntersectionObserver, CSS-only motion)
+       ============================================================ */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 20px, 0);
-      will-change: transform, opacity;
+      transform: translate3d(0, 16px, 0);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      will-change: opacity, transform;
     }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    .reveal-1 { transition-delay: 0.05s; }
+    .reveal-2 { transition-delay: 0.15s; }
+    .reveal-3 { transition-delay: 0.25s; }
+    .reveal-4 { transition-delay: 0.35s; }
+
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; }
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #061a2f;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* ---------- SECTION HEADER ---------- */
-    .section-kicker {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .section-h {
-      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      color: var(--navy);
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-eyebrow-dot { box-shadow: none; }
+      * { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Skip-to-main accessibility link (visible only on keyboard focus) -->
-  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+  <!-- Skip-to-main accessibility link -->
+  <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
   <!-- NAV -->
-  <header class="absolute top-0 left-0 right-0 z-40" role="banner">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-      <a href="#main" class="flex items-center gap-2.5" aria-label="Unruly Labs LP, home">
-        <div class="w-8 h-8 rounded-md relative" style="background: #fff;" aria-hidden="true">
-          <div style="position:absolute; right:-4px; bottom:-4px; width:11px; height:11px; background: var(--accent); border-radius: 3px;"></div>
-        </div>
-        <span class="font-bold tracking-tight text-white text-base">Unruly Labs LP</span>
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav-inner">
+      <a href="#main" class="nav-brand" aria-label="Unruly Labs LP, home">
+        <span class="nav-mark" aria-hidden="true"></span>
+        <span>Unruly Labs</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
-        <a href="#portfolio" class="nav-link">Portfolio</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#process" class="nav-link">How we work</a>
         <a href="#operators" class="nav-link">Operators</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Get an audit</a>
+        <a href="#contact" class="btn btn-primary">Start a build <span class="arr" aria-hidden="true">&rarr;</span></a>
       </nav>
-      <a href="#contact" class="md:hidden btn btn-primary" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Get an audit">Audit</a>
+      <a href="#contact" class="btn btn-primary nav-cta-mobile" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Start a build">Start <span class="arr" aria-hidden="true">&rarr;</span></a>
     </div>
   </header>
 
@@ -528,268 +834,272 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-grid"></div>
-      <div class="hero-glow"></div>
-      <div class="max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 relative">
-        <div class="reveal" data-reveal-order="1">
-          <span class="hero-eyebrow"><span class="pulse"></span>Compound operating company · Unruly Labs LP</span>
+      <div class="hero-beam" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container">
+
+        <div class="reveal reveal-1">
+          <span class="hero-eyebrow">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Unruly Labs LP · AI-native build shop
+          </span>
         </div>
 
-        <h1 class="hero-h1 mt-7 reveal" data-reveal-order="2">
-          <span class="num">Six</span> companies.<br/>
-          <span class="num">One</span> chassis.<br/>
-          <span class="num">Zero</span> outside capital.
+        <h1 class="display hero-h1 reveal reveal-2">
+          Your roadmap promised AI by&nbsp;Q3.<br />
+          We <em>ship&nbsp;it</em> by Friday.
         </h1>
 
-        <p class="hero-sub mt-7 reveal" data-reveal-order="3">
-          Two principals. A multi-agent AI fleet. One operating system running a Roblox game, a quant trading stack, a content engine, an enterprise monitoring engagement, and a 24-72h website-build line.
+        <p class="hero-sub reveal reveal-3">
+          Production AI across web, monitoring, content, and quant systems. Two principals plus a multi-agent fleet. Scope call Monday, shipped build by the end of the week.
         </p>
 
-        <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 reveal" data-reveal-order="4">
-          <a href="#contact" class="btn btn-primary">Get an audit</a>
-          <a href="#portfolio" class="text-link">See what we run</a>
-          <a href="#operators" class="text-link">Read the operator memo &rarr;</a>
+        <div class="hero-cta reveal reveal-3">
+          <a href="#contact" class="btn btn-primary btn-lg">Start a build <span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a href="#services" class="btn btn-ghost btn-lg">See what we ship</a>
         </div>
+
+        <div class="hero-meta reveal reveal-4">
+          <div class="hero-meta-cell">
+            <div class="hero-meta-num">24&ndash;72<small>hrs</small></div>
+            <div class="hero-meta-label">Scope call to production</div>
+          </div>
+          <div class="hero-meta-cell">
+            <div class="hero-meta-num">30<small>sites</small></div>
+            <div class="hero-meta-label">Currently in monitoring</div>
+          </div>
+          <div class="hero-meta-cell">
+            <div class="hero-meta-num">4<small>verticals</small></div>
+            <div class="hero-meta-label">Production AI products</div>
+          </div>
+          <div class="hero-meta-cell">
+            <div class="hero-meta-num">7<small>agents</small></div>
+            <div class="hero-meta-label">Coordinated build fleet</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- PROVE-IT STRIP -->
-    <section class="prove-strip" aria-label="Operating receipts">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4">
-          <div class="stat-cell reveal" data-reveal-order="5" data-stat="agents-in-fleet" data-source="agent-roster-count">
-            <div class="stat-num">7</div>
-            <div class="stat-label">Agents in the fleet</div>
+    <!-- SERVICES -->
+    <section id="services" class="services section-light">
+      <div class="container">
+
+        <div class="services-head">
+          <div class="reveal reveal-1">
+            <span class="eyebrow eyebrow-accent">What we ship</span>
+            <h2 class="section-h" style="margin-top: 0.8rem;">
+              Four product lines. <em style="font-style: italic; color: #b45309;">All in production.</em>
+            </h2>
           </div>
-          <div class="stat-cell reveal" data-reveal-order="6" data-stat="verticals-operating" data-source="portfolio-tile-count">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Verticals operating</div>
-          </div>
-          <div class="stat-cell reveal" data-reveal-order="7" data-stat="outside-capital" data-source="cap-table-literal">
-            <div class="stat-num">$0</div>
-            <div class="stat-label">Capital from outside investors</div>
-          </div>
-          <div class="stat-cell reveal" data-reveal-order="8" data-stat="ask-to-ship-days" data-source="forge-sla-evidence">
-            <div class="stat-num">1</div>
-            <div class="stat-label">Days, operator-ask to shipped</div>
+          <div class="reveal reveal-2">
+            <p class="lede">
+              We don&rsquo;t scope. We ship. Each line runs on the same chassis: two principals plus a multi-agent fleet, working against a delivery deadline measured in days.
+            </p>
           </div>
         </div>
-        <p class="text-xs text-white/40 py-3 text-center md:text-right" id="prove-strip-ts">
-          Snapshot 2026-05-21 · each stat verifiable on request
-        </p>
+
+        <div class="bento">
+
+          <!-- TILE 1: Forge (wide) -->
+          <article class="tile tile-wide reveal reveal-1">
+            <div class="tile-kicker">Forge &middot; Web</div>
+            <h3 class="tile-title">Production websites. 24 to 72 hours.</h3>
+            <p class="tile-body">
+              A fixed-price website build for operators who needed a credible domain presence yesterday. No discovery phase. No retainer creep. You send the scope on Monday, the site goes live by Thursday.
+            </p>
+            <ul class="tile-list">
+              <li>Fixed-price scope. Fixed-day delivery.</li>
+              <li>Built and audited by the same fleet that ships our own portfolio</li>
+              <li>Custom domain, copy, design, analytics, and deploy included</li>
+            </ul>
+            <a href="#contact" class="tile-cta">Start a build <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <!-- TILE 2: ECS Monitoring (std) -->
+          <article class="tile tile-std reveal reveal-2">
+            <div class="tile-kicker">Sentinel &middot; Monitoring</div>
+            <h3 class="tile-title">Vision-LLM site monitoring.</h3>
+            <p class="tile-body">
+              Daily pass or fail verdict per camera, packaged as a row-per-camera operator readout. Active across a 30-site enterprise engagement today.
+            </p>
+            <a href="#contact" class="tile-cta">Scope a pilot <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <!-- TILE 3: Destiny (half) -->
+          <article class="tile tile-half reveal reveal-3">
+            <div class="tile-kicker">Destiny &middot; Quant</div>
+            <h3 class="tile-title">Algorithmic trading systems.</h3>
+            <p class="tile-body">
+              Backtest, deploy, audit. Built for operators who want to own the signal, not rent it. Demo until profit threshold is met, then API-direct live.
+            </p>
+            <ul class="tile-list">
+              <li>Kill-criteria framework on every strategy</li>
+              <li>API cost accounted for in every P&amp;L claim</li>
+            </ul>
+            <a href="#contact" class="tile-cta">Read the methodology <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+          <!-- TILE 4: ARIA (half) -->
+          <article class="tile tile-half reveal reveal-4">
+            <div class="tile-kicker">ARIA &middot; Content</div>
+            <h3 class="tile-title">Autonomous content engines.</h3>
+            <p class="tile-body">
+              A YouTube engine that researches, scripts, voices, and renders content on its own. You supply the topic list. The fleet supplies the rest, daily.
+            </p>
+            <ul class="tile-list">
+              <li>Daily-cadence renders, zero human-in-the-loop ops</li>
+              <li>Brand-clean audio (we wrote the pronunciation normalizer)</li>
+            </ul>
+            <a href="#contact" class="tile-cta">Watch the latest <span class="arr" aria-hidden="true">&rarr;</span></a>
+          </article>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="bg-white">
-      <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
-        <div class="max-w-3xl reveal">
-          <span class="section-kicker">The portfolio</span>
-          <h2 class="section-h">Six businesses. One fleet. None of them slide-phase.</h2>
-          <p class="body-lead mt-5">
-            Each block runs on the same chassis: two principals + a multi-agent fleet. Receipts below, not promises.
+    <!-- PROCESS -->
+    <section id="process" class="process">
+      <div class="container">
+
+        <div class="process-head reveal reveal-1">
+          <span class="eyebrow eyebrow-accent">How we work</span>
+          <h2 class="section-h" style="margin-top: 0.8rem; color: var(--text-0);">
+            Three steps. <em>One week.</em>
+          </h2>
+          <p class="lede" style="margin-top: 1.5rem;">
+            Most AI engagements end at the slide phase. Ours start at the deploy. Here is what happens between you sending an email and the build going live.
           </p>
         </div>
 
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <!-- TILE 1: Forge -->
-          <article class="tile reveal">
-            <div class="tile-kicker">Forge</div>
-            <h3 class="tile-title">Website builds in 24-72 hours.</h3>
-            <p class="tile-pitch">
-              A productized website build for operators who need a credible domain presence by Monday. Not a redesign sprint. Not a discovery phase. A site, audited, by Wednesday.
+        <ol class="process-steps">
+          <li class="step reveal reveal-1">
+            <div class="step-num">01 / Scope</div>
+            <h3 class="step-title">A 30-minute scope call.</h3>
+            <p class="step-body">
+              You send the URL or the problem statement. We respond inside a business day. The call runs 30 minutes and ends with a fixed-price proposal or a clear no.
             </p>
-            <ul class="tile-bullets">
-              <li>24-72h turnaround, fixed-price scope</li>
-              <li>No retainer creep. No discovery phase.</li>
-              <li>Same AI fleet that runs our own portfolio</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Start my 72-hour build <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 2: ECS-Integrations -->
-          <article class="tile reveal">
-            <div class="tile-kicker">ECS-Integrations</div>
-            <h3 class="tile-title">Vision-LLM site monitoring for enterprise.</h3>
-            <p class="tile-pitch">
-              A daily-cadence camera and site monitoring service: vision-LLM renders a binary pass/fail verdict per camera per day, packaged as a row-per-camera operator readout.
+            <div class="step-time">Day 1 &middot; same week</div>
+          </li>
+          <li class="step reveal reveal-2">
+            <div class="step-num">02 / Build</div>
+            <h3 class="step-title">A 48-hour build sprint.</h3>
+            <p class="step-body">
+              The fleet builds against the scope while a principal audits each commit. You see progress in a shared channel, not a status deck. You get the production URL, not the staging one.
             </p>
-            <ul class="tile-bullets">
-              <li>Powering an active 30-site enterprise engagement</li>
-              <li>One row per camera. One line per verdict.</li>
-              <li>We install on-site or remote-in. Client never opens a terminal.</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Scope a monitoring pilot <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 3: Agent fleet -->
-          <article class="tile reveal">
-            <div class="tile-kicker">Agent fleet</div>
-            <h3 class="tile-title">Multi-agent operating system for a real firm.</h3>
-            <p class="tile-pitch">
-              Designed to run a firm, not a demo. Seven role-specific agents coordinate on Slack, ship code, run audits, brief operators daily.
+            <div class="step-time">Day 2 to 3</div>
+          </li>
+          <li class="step reveal reveal-3">
+            <div class="step-num">03 / Ship</div>
+            <h3 class="step-title">Production handoff.</h3>
+            <p class="step-body">
+              Live deploy, working code, working analytics, working docs. We hand you the keys. If something breaks in the first 30 days, we fix it on us.
             </p>
-            <ul class="tile-bullets">
-              <li>Daily 07:00 ET executive standup, fully automated</li>
-              <li>Cross-agent peer review on every significant decision</li>
-              <li>Built and used in-house. Sold to firms ready to actually adopt it.</li>
-            </ul>
-            <a href="#contact" class="tile-cta">See how the fleet runs <span class="arr">&rarr;</span></a>
-          </article>
+            <div class="step-time">Day 3 to 5</div>
+          </li>
+        </ol>
 
-          <!-- TILE 4: clog-busters -->
-          <article class="tile reveal">
-            <div class="tile-kicker">clog-busters</div>
-            <h3 class="tile-title">A Roblox simulator we own and operate.</h3>
-            <p class="tile-pitch">
-              An unblocking-simulator game live on Roblox, built and operated by the same fleet that runs everything else on this page. A game is one of our businesses. Not the whole story.
-            </p>
-            <ul class="tile-bullets">
-              <li>Live on Roblox. Weekly release cadence.</li>
-              <li>Our youngest line of business, our biggest reach</li>
-              <li>Operator-led, no publisher</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Play it <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 5: destiny -->
-          <article class="tile reveal">
-            <div class="tile-kicker">destiny</div>
-            <h3 class="tile-title">Algorithmic trading research.</h3>
-            <p class="tile-pitch">
-              A quant research stack. Backtests on Sonnet via the Max plan; live signals through the Anthropic API direct. Demo until profitable. Profit threshold is board-defined.
-            </p>
-            <ul class="tile-bullets">
-              <li>30-day kill-criteria framework. No vanity P&amp;L.</li>
-              <li>API costs accounted for in every claim</li>
-              <li>Not seeking allocators. Not selling signals.</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Read the methodology memo <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 6: ARIA -->
-          <article class="tile reveal">
-            <div class="tile-kicker">ARIA</div>
-            <h3 class="tile-title">Autonomous content for faceless-travel.</h3>
-            <p class="tile-pitch">
-              A YouTube engine that researches, scripts, voices, and renders travel shorts on its own. We supply the country list. The fleet supplies everything else.
-            </p>
-            <ul class="tile-bullets">
-              <li>Daily-cadence renders. Zero human-in-the-loop ops.</li>
-              <li>Brand-clean audio (we built our own pronunciation normalizer)</li>
-              <li>One operator on the country pipeline. The rest is agents.</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Watch the latest drop <span class="arr">&rarr;</span></a>
-          </article>
-
-        </div>
       </div>
     </section>
 
     <!-- OPERATORS -->
-    <section id="operators" class="bg-gray-50">
-      <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
-        <div class="max-w-3xl reveal">
-          <span class="section-kicker">The operators</span>
-          <h2 class="section-h">Two principals. No outside investors. Scars, not credentials.</h2>
+    <section id="operators" class="operators">
+      <div class="container">
+
+        <div class="operators-head reveal reveal-1">
+          <span class="eyebrow eyebrow-accent">Who builds it</span>
+          <h2 class="section-h" style="margin-top: 0.8rem; color: var(--text-0);">
+            Two principals. <em>Scars, not credentials.</em>
+          </h2>
         </div>
 
-        <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="op-grid">
 
-          <!-- Ryan -->
-          <div class="op-card reveal">
-            <div class="flex items-center gap-4">
-              <div class="op-avatar">RD</div>
+          <article class="op-card reveal reveal-1">
+            <div class="op-head">
+              <div class="op-mark" aria-hidden="true">RD</div>
               <div>
-                <h3 class="text-xl font-bold" style="color: var(--navy);">Ryan Dhookaran</h3>
-                <p class="text-sm font-semibold" style="color: var(--ash);">Principal &middot; Head of Product</p>
+                <div class="op-name">Ryan Dhookaran</div>
+                <div class="op-role">Principal &middot; Head of Product</div>
               </div>
             </div>
-            <p class="body-prose mt-6">
-              Spent a decade inside the slowest companies in financial services (BNY Mellon as VP, BHG Financial as Senior PO) learning what <em>doesn't</em> ship. Brought that scar tissue to Unruly Labs. Owns the product line: what we build, who it's for, what we kill. Controller of the LP. Will tell you when the copy sucks.
+            <p class="op-bio">
+              A decade inside the slowest companies in financial services. VP at BNY Mellon, Senior Product Owner at BHG Financial. He learned what <em>doesn&rsquo;t</em> ship inside a Fortune 500. Brought the scar tissue to Unruly Labs. Owns the product line: what we build, who it is for, what we kill.
             </p>
             <div class="op-pull">
-              "What can be done today, accomplish it. Tomorrow is not guaranteed."
+              What can be done today, accomplish it. Tomorrow is not guaranteed.
             </div>
-            <p class="text-sm" style="color: var(--ash);">
-              MBA Finance, Nova Southeastern. BA Economics, University of South Florida.
-            </p>
-          </div>
+            <div class="op-creds">
+              MBA Finance, Nova Southeastern &middot; BA Economics, USF
+            </div>
+          </article>
 
-          <!-- Darsan -->
-          <div class="op-card reveal">
-            <div class="flex items-center gap-4">
-              <div class="op-avatar">DD</div>
+          <article class="op-card reveal reveal-2">
+            <div class="op-head">
+              <div class="op-mark" aria-hidden="true">DD</div>
               <div>
-                <h3 class="text-xl font-bold" style="color: var(--navy);">Darsan Dinaram</h3>
-                <p class="text-sm font-semibold" style="color: var(--ash);">Principal &middot; Head of Infrastructure &amp; Security</p>
+                <div class="op-name">Darsan Dinaram</div>
+                <div class="op-role">Principal &middot; Head of Infrastructure &amp; Security</div>
               </div>
             </div>
-            <p class="body-prose mt-6">
-              Five-plus years inside an enterprise IT org that supports 100,000+ users at AdventHealth, currently as Tier III Collaboration Analyst. The kind of operator who reads the firewall logs, not just the dashboards. Owns infrastructure, security, and the parts of this company that have to actually stay up.
+            <p class="op-bio">
+              Five years inside an enterprise IT org supporting 100,000-plus users at AdventHealth, currently Tier III Collaboration Analyst. The kind of operator who reads the firewall logs, not just the dashboards. Owns infrastructure, security, and the parts of the company that have to actually stay up.
             </p>
             <div class="op-pull">
-              Every client-touching deploy gets a peer audit before it ships. Every one.
+              Every client deploy gets a peer audit before it ships. Every one.
             </div>
-            <p class="text-sm" style="color: var(--ash);">
-              Microsoft Azure certified. UCF Cybersecurity Certificate.
-            </p>
-          </div>
+            <div class="op-creds">
+              Microsoft Azure certified &middot; UCF Cybersecurity Certificate
+            </div>
+          </article>
+
         </div>
 
-        <div class="mt-10 max-w-3xl body-prose reveal">
-          <p>
-            <strong style="color: var(--navy);">The fleet.</strong> Seven role-specific agents do the work between the principals: Atlas (LP-side CEO), Potter (operating-side CEO), Groot (CTO, clog-busters), Vulcan (audit), ARIA-Koda (content), destiny-Koda (quant), Diana (recruiting). They don't replace operators. They make two principals run like twelve.
-          </p>
+        <div class="fleet-note reveal reveal-3">
+          <strong>The fleet.</strong> Seven role-specific agents work between the principals: Atlas and Potter run executive coordination, Groot and Vulcan ship and audit code, Diana sources talent, ARIA-Koda runs content, destiny-Koda runs the quant stack. They don&rsquo;t replace operators. They make two principals run like twelve.
         </div>
+
       </div>
     </section>
 
-    <!-- CTA BAND -->
-    <section id="contact" class="cta-band">
-      <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-          <div class="lg:col-span-7 reveal">
-            <span class="section-kicker" style="color: var(--accent);">Start here</span>
-            <h2 class="cta-h2 mt-2">
-              <span style="color: #fff;">Send us your URL.</span><br/>
-              <span style="color: var(--accent);">We send back an audit.</span>
-            </h2>
-            <p class="hero-sub mt-6 max-w-xl">
-              No NDA on first contact. No sales call before we read your scope. Reply inside one business day or we'll tell you why we didn't.
-            </p>
-          </div>
-          <div class="lg:col-span-5 reveal">
-            <a href="mailto:ops@unrulylabslp.com?subject=Aurora%20audit%20request" class="btn btn-primary text-lg" style="padding: 1.15rem 2rem; font-size: 1.05rem;">
-              Get an audit
-            </a>
-            <div class="mt-6 text-sm" style="color: rgba(255,255,255,0.7);">
-              <div>Operations &middot; <a href="mailto:ops@unrulylabslp.com" class="text-link">ops@unrulylabslp.com</a></div>
-              <div class="mt-1.5">Response inside one business day.</div>
-            </div>
+    <!-- CTA -->
+    <section id="contact" class="cta">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="container cta-inner">
+
+        <div class="reveal reveal-1">
+          <span class="eyebrow eyebrow-accent">Start here</span>
+          <h2 class="cta-h" style="margin-top: 0.8rem;">
+            Send the URL. <em style="color: var(--accent);">Get the build.</em>
+          </h2>
+          <p class="cta-sub">
+            No NDA on first contact. No sales call before we read your scope. We respond inside one business day or we tell you why we did not.
+          </p>
+        </div>
+
+        <div class="cta-actions reveal reveal-2">
+          <a href="mailto:ops@unrulylabslp.com?subject=Build%20request" class="btn btn-primary btn-lg" style="padding: 1.1rem 1.8rem; font-size: 1rem;">
+            Start a build <span class="arr" aria-hidden="true">&rarr;</span>
+          </a>
+          <div class="cta-meta">
+            Operations &middot; <a href="mailto:ops@unrulylabslp.com">ops@unrulylabslp.com</a><br />
+            Response inside one business day.
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="max-w-6xl mx-auto px-6 py-12">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div class="flex items-center gap-2.5">
-            <div class="w-7 h-7 rounded-md relative" style="background: rgba(255,255,255,0.12);">
-              <div style="position:absolute; right:-3px; bottom:-3px; width:10px; height:10px; background: var(--accent); border-radius: 2px;"></div>
-            </div>
-            <span class="font-bold tracking-tight text-white text-sm">Unruly Labs LP</span>
-          </div>
-          <div class="text-xs" style="color: rgba(255,255,255,0.55);">
-            Unruly Labs LP &middot; operator-led &middot; zero outside capital &middot; built in NY + FL
-          </div>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="footer-mark" aria-hidden="true"></span>
+          <span>Unruly Labs LP</span>
         </div>
-        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs" style="color: rgba(255,255,255,0.42);">
-          <div>&copy; 2026 Unruly Labs LP</div>
-          <div>Aurora v0.3.1 &middot; <a href="mailto:ops@unrulylabslp.com" class="text-link" style="font-size: 0.75rem;">ops@unrulylabslp.com</a></div>
+        <div class="footer-meta">
+          &copy; 2026 Unruly Labs LP &middot; Operator-led &middot; <a href="mailto:ops@unrulylabslp.com">ops@unrulylabslp.com</a>
         </div>
       </div>
     </footer>
@@ -797,44 +1107,44 @@
   </main>
 
   <script>
-    // GSAP scroll-triggered reveal: transform + opacity only (60fps safe)
+    // Nav blur on scroll
+    (function () {
+      var nav = document.getElementById('nav');
+      if (!nav) return;
+      var update = function () {
+        if (window.scrollY > 16) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+    })();
+
+    // Scroll reveal via IntersectionObserver (no dependencies, 60fps)
     (function () {
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
         return;
       }
-      if (typeof gsap === 'undefined') return;
-      if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
-
-      // Above-the-fold reveals fire on load with stagger.
-      var heroReveals = document.querySelectorAll('.hero .reveal, .prove-strip .reveal');
-      gsap.to(heroReveals, {
-        opacity: 1,
-        y: 0,
-        duration: 0.85,
-        ease: 'power3.out',
-        stagger: 0.12,
-        delay: 0.15
-      });
-
-      // Below-the-fold reveals fire on scroll.
-      var sections = ['#portfolio', '#operators', '#contact'];
-      sections.forEach(function (sel) {
-        var root = document.querySelector(sel);
-        if (!root) return;
-        var els = root.querySelectorAll('.reveal');
-        gsap.to(els, {
-          opacity: 1,
-          y: 0,
-          duration: 0.75,
-          ease: 'power3.out',
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: root,
-            start: 'top 78%',
-            once: true
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
           }
         });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      // Hero reveals fire immediately
+      document.querySelectorAll('.hero .reveal').forEach(function (el) {
+        setTimeout(function () { el.classList.add('is-visible'); }, 60);
+      });
+      // Below-the-fold reveals observed
+      document.querySelectorAll('section:not(.hero) .reveal').forEach(function (el) {
+        io.observe(el);
       });
     })();
   </script>
