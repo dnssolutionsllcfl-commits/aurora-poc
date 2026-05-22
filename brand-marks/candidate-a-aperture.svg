@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Unruly Labs LP">
+  <title>Unruly Labs LP</title>
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#0a2540" stroke-width="3"/>
+  <!-- 4 aperture blades meeting at center, leaving square negative-space pupil -->
+  <path d="M 32 8 L 56 32 L 38 32 L 32 26 Z" fill="#0a2540"/>
+  <path d="M 56 32 L 32 56 L 32 38 L 38 32 Z" fill="#0a2540"/>
+  <path d="M 32 56 L 8 32 L 26 32 L 32 38 Z" fill="#0a2540"/>
+  <path d="M 8 32 L 32 8 L 32 26 L 26 32 Z" fill="#0a2540"/>
+  <!-- Center pupil · accent dot -->
+  <rect x="29" y="29" width="6" height="6" fill="#ff7a00"/>
+</svg>

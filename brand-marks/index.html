@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aurora · Brand-mark candidates · Operator pick A/B/C</title>
+<style>
+  :root {
+    --navy: #0a2540;
+    --paper: #f7f8fa;
+    --accent: #ff7a00;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--navy);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  header {
+    padding: 48px 32px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .card .rationale {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .row .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .row .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .row.wordmark .stage { justify-content: flex-start; }
+  .scales {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .scale-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .scale-item .scale-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .scale-item img {
+    display: block;
+  }
+  .pick-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+  footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  footer code {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Aurora · Brand-mark candidates · Operator pick A/B/C</h1>
+  <p>STORY-AURORA-023 · Senior Designer dispatched by Potter · 2026-05-22</p>
+</header>
+
+<section class="grid">
+
+  <!-- Candidate A -->
+  <article class="card">
+    <h2>Candidate A · Aperture</h2>
+    <p class="rationale">Octagonal aperture-iris built from 4 mirrored blades with a center accent pupil — reads "instrument-grade · infrastructure that focuses · adjusts · sees."</p>
+
+    <div class="row">
+      <div class="label">Mark only · 64x64</div>
+      <div class="stage">
+        <img src="candidate-a-aperture.svg" width="64" height="64" alt="Candidate A mark">
+      </div>
+    </div>
+
+    <div class="row wordmark">
+      <div class="label">Mark + wordmark · 240x64</div>
+      <div class="stage">
+        <img src="candidate-a-aperture-wordmark.svg" width="240" height="64" alt="Candidate A wordmark">
+      </div>
+    </div>
+
+    <div class="scales">
+      <div class="scale-item">
+        <img src="candidate-a-aperture.svg" width="16" height="16" alt="favicon">
+        <span class="scale-label">16px favicon</span>
+      </div>
+      <div class="scale-item">
+        <img src="candidate-a-aperture.svg" width="128" height="128" alt="128px demo">
+        <span class="scale-label">128px</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Candidate B -->
+  <article class="card">
+    <h2>Candidate B · Chevron-stack</h2>
+    <p class="rationale">Three nested chevrons on a rounded-square plate with a 35/65/100 opacity ramp — reads "operational layers compounding · foundation to outcome · forward momentum."</p>
+
+    <div class="row">
+      <div class="label">Mark only · 64x64</div>
+      <div class="stage">
+        <img src="candidate-b-chevron-stack.svg" width="64" height="64" alt="Candidate B mark">
+      </div>
+    </div>
+
+    <div class="row wordmark">
+      <div class="label">Mark + wordmark · 240x64</div>
+      <div class="stage">
+        <img src="candidate-b-chevron-stack-wordmark.svg" width="240" height="64" alt="Candidate B wordmark">
+      </div>
+    </div>
+
+    <div class="scales">
+      <div class="scale-item">
+        <img src="candidate-b-chevron-stack.svg" width="16" height="16" alt="favicon">
+        <span class="scale-label">16px favicon</span>
+      </div>
+      <div class="scale-item">
+        <img src="candidate-b-chevron-stack.svg" width="128" height="128" alt="128px demo">
+        <span class="scale-label">128px</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Candidate C -->
+  <article class="card">
+    <h2>Candidate C · UL-monogram <span class="pick-tag">Designer rec</span></h2>
+    <p class="rationale">Block-serif U+L sharing a stem with an accent-orange terminator on the L arm — letterforms resolve at favicon scale where abstract marks blur; lowest peer-collision risk.</p>
+
+    <div class="row">
+      <div class="label">Mark only · 64x64</div>
+      <div class="stage">
+        <img src="candidate-c-ul-monogram.svg" width="64" height="64" alt="Candidate C mark">
+      </div>
+    </div>
+
+    <div class="row wordmark">
+      <div class="label">Mark + wordmark · 240x64</div>
+      <div class="stage">
+        <img src="candidate-c-ul-monogram-wordmark.svg" width="240" height="64" alt="Candidate C wordmark">
+      </div>
+    </div>
+
+    <div class="scales">
+      <div class="scale-item">
+        <img src="candidate-c-ul-monogram.svg" width="16" height="16" alt="favicon">
+        <span class="scale-label">16px favicon</span>
+      </div>
+      <div class="scale-item">
+        <img src="candidate-c-ul-monogram.svg" width="128" height="128" alt="128px demo">
+        <span class="scale-label">128px</span>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<footer>
+  Operator pick · post <code>A</code>, <code>B</code>, or <code>C</code> in <code>#unruly-labs-lp</code> · Sonnet impl agent dispatched on pick.
+</footer>
+</body>
+</html>
