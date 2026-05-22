@@ -671,13 +671,50 @@
       border-color: #cdd5df;
       box-shadow: 0 16px 32px -20px rgba(10, 37, 64, 0.2);
     }
+    /* AURORA-019 · op-monogram (upgraded from flat avatar · matches case-monogram visual pattern · radial-gradient accent overlay) */
     .op-avatar {
-      width: 56px; height: 56px;
-      border-radius: 12px;
+      width: 72px; height: 72px;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
       color: #fff;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.15rem; letter-spacing: 0.04em;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700; font-size: 1.65rem; letter-spacing: 0.02em;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .op-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(45% 65% at 78% 22%, rgba(255,122,0,0.26) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .op-avatar span { position: relative; z-index: 1; }
+    /* AURORA-019 · specialty pills (brand-palette · Stripe/Linear-style) */
+    .op-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.55rem;
+    }
+    .op-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+      background: rgba(10, 37, 64, 0.06);
+      border: 1px solid rgba(10, 37, 64, 0.1);
+      border-radius: 999px;
+      padding: 4px 10px;
+      transition: background .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .op-card:hover .op-pill {
+      background: rgba(255, 122, 0, 0.08);
+      border-color: rgba(255, 122, 0, 0.25);
+      color: var(--accent-text);
     }
     .op-pull {
       border-left: 3px solid var(--accent);
@@ -1247,10 +1284,15 @@
           <!-- Ryan -->
           <div class="op-card reveal">
             <div class="flex items-center gap-4">
-              <div class="op-avatar">RD</div>
+              <div class="op-avatar" role="img" aria-label="Ryan Dhookaran monogram"><span>RD</span></div>
               <div>
                 <h3 class="text-xl font-bold" style="color: var(--navy);">Ryan Dhookaran</h3>
                 <p class="text-sm font-semibold" style="color: var(--ash);">Principal &middot; Head of Product</p>
+                <div class="op-pills" aria-label="Specialty areas">
+                  <span class="op-pill">Strategy</span>
+                  <span class="op-pill">Product</span>
+                  <span class="op-pill">Operations</span>
+                </div>
               </div>
             </div>
             <p class="body-prose mt-6">
@@ -1270,10 +1312,15 @@
           <!-- Darsan -->
           <div class="op-card reveal">
             <div class="flex items-center gap-4">
-              <div class="op-avatar">DD</div>
+              <div class="op-avatar" role="img" aria-label="Darsan Dinaram monogram"><span>DD</span></div>
               <div>
                 <h3 class="text-xl font-bold" style="color: var(--navy);">Darsan Dinaram</h3>
                 <p class="text-sm font-semibold" style="color: var(--ash);">Principal &middot; Head of Infrastructure &amp; Security</p>
+                <div class="op-pills" aria-label="Specialty areas">
+                  <span class="op-pill">Infrastructure</span>
+                  <span class="op-pill">Security</span>
+                  <span class="op-pill">Release gates</span>
+                </div>
               </div>
             </div>
             <p class="body-prose mt-6">
