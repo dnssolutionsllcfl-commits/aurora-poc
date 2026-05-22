@@ -555,26 +555,31 @@
     <!-- PROVE-IT STRIP -->
     <section class="prove-strip" aria-label="Operating receipts">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4">
-          <div class="stat-cell reveal" data-reveal-order="5" data-stat="agents-in-fleet" data-source="agent-roster-count">
-            <div class="stat-num">7</div>
-            <div class="stat-label">Agents in the fleet</div>
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="stat-cell reveal" data-reveal-order="5" data-stat="enterprise-client" data-source="ecs-engagement-evidence">
+            <div class="stat-num">30 sites, monitored live</div>
+            <div class="stat-label">Enterprise client</div>
+            <p class="body-prose mt-2" style="color: rgba(255,255,255,0.72); font-size: 0.88rem; line-height: 1.5;">
+              Six-week build to ship for an enterprise integrator. Portal plus camera health, every site, every hour.
+            </p>
           </div>
-          <div class="stat-cell reveal" data-reveal-order="6" data-stat="verticals-operating" data-source="portfolio-tile-count">
-            <div class="stat-num">6</div>
-            <div class="stat-label">Verticals operating</div>
+          <div class="stat-cell reveal" data-reveal-order="6" data-stat="ship-speed" data-source="aurora-site-timestamp">
+            <div class="stat-num">Scope call to shipped site, same week</div>
+            <div class="stat-label">24-72h SLA</div>
+            <p class="body-prose mt-2" style="color: rgba(255,255,255,0.72); font-size: 0.88rem; line-height: 1.5;">
+              This site went from scope conversation to public URL in four working days. You're reading the proof.
+            </p>
           </div>
-          <div class="stat-cell reveal" data-reveal-order="7" data-stat="outside-capital" data-source="cap-table-literal">
-            <div class="stat-num">$0</div>
-            <div class="stat-label">Capital from outside investors</div>
-          </div>
-          <div class="stat-cell reveal" data-reveal-order="8" data-stat="ask-to-ship-days" data-source="forge-sla-evidence">
-            <div class="stat-num">1</div>
-            <div class="stat-label">Days, operator-ask to shipped</div>
+          <div class="stat-cell reveal" data-reveal-order="7" data-stat="operator-led" data-source="principals-sla">
+            <div class="stat-num">Principals on every engagement</div>
+            <div class="stat-label">Operator-led</div>
+            <p class="body-prose mt-2" style="color: rgba(255,255,255,0.72); font-size: 0.88rem; line-height: 1.5;">
+              Reply inside one business day. No account managers between you and the work.
+            </p>
           </div>
         </div>
         <p class="text-xs text-white/40 py-3 text-center md:text-right" id="prove-strip-ts">
-          Snapshot 2026-05-21 · each stat verifiable on request
+          Snapshot 2026-05-21 · each claim verifiable on request
         </p>
       </div>
     </section>
@@ -583,10 +588,10 @@
     <section id="portfolio" class="bg-white">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
-          <span class="section-kicker">The portfolio</span>
-          <h2 class="section-h">Six businesses. One fleet. None of them slide-phase.</h2>
+          <span class="section-kicker">What we run</span>
+          <h2 class="section-h">One operating company. Multiple lines of business. No slide-phase.</h2>
           <p class="body-lead mt-5">
-            Each block runs on the same chassis: two principals + a multi-agent fleet. Receipts below, not promises.
+            Same chassis underneath every line: principals plus an agent fleet. Receipts below, not promises.
           </p>
         </div>
 
@@ -595,91 +600,61 @@
           <!-- TILE 1: Forge -->
           <article class="tile reveal">
             <div class="tile-kicker">Forge</div>
-            <h3 class="tile-title">Website builds in 24-72 hours.</h3>
+            <h3 class="tile-title">Your back office runs without you.</h3>
             <p class="tile-pitch">
-              A productized website build for operators who need a credible domain presence by Monday. Not a redesign sprint. Not a discovery phase. A site, audited, by Wednesday.
+              Your service business is drowning in dues chases, intake forms, and follow-ups nobody has time for. Forge automates the paperwork your team hates. Start with a $750 audit, ship the build in weeks.
             </p>
             <ul class="tile-bullets">
-              <li>24-72h turnaround, fixed-price scope</li>
-              <li>No retainer creep. No discovery phase.</li>
-              <li>Same AI fleet that runs our own portfolio</li>
+              <li>$750 audit · $3.5K to $7.5K build · $99 to $249/mo managed</li>
+              <li>Florida warm-network pilot: HOA boards, home-service operators, local SMB</li>
+              <li>Quote, invoice, follow-up flows live in days, not quarters</li>
             </ul>
-            <a href="#contact" class="tile-cta">Start my 72-hour build <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Book my audit <span class="arr">&rarr;</span></a>
           </article>
 
-          <!-- TILE 2: ECS-Integrations -->
+          <!-- TILE 2: Sentinel -->
           <article class="tile reveal">
-            <div class="tile-kicker">ECS-Integrations</div>
-            <h3 class="tile-title">Vision-LLM site monitoring for enterprise.</h3>
+            <div class="tile-kicker">Sentinel</div>
+            <h3 class="tile-title">Know an outage before the client calls.</h3>
             <p class="tile-pitch">
-              A daily-cadence camera and site monitoring service: vision-LLM renders a binary pass/fail verdict per camera per day, packaged as a row-per-camera operator readout.
+              Thirty sites, dozens of cameras, and your ops team finds out something is down from an angry email. Sentinel watches every endpoint and flags failures before the client notices.
             </p>
             <ul class="tile-bullets">
-              <li>Powering an active 30-site enterprise engagement</li>
-              <li>One row per camera. One line per verdict.</li>
-              <li>We install on-site or remote-in. Client never opens a terminal.</li>
+              <li>Live with an enterprise integrator: 30-site portal plus camera monitoring in production</li>
+              <li>Per-site row dashboard, binary PASS/FAIL verdicts, no log-diving</li>
+              <li>Daily client-facing reports drafted automatically, executive-grade</li>
             </ul>
-            <a href="#contact" class="tile-cta">Scope a monitoring pilot <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Scope my fleet <span class="arr">&rarr;</span></a>
           </article>
 
-          <!-- TILE 3: Agent fleet -->
+          <!-- TILE 3: Aurora -->
           <article class="tile reveal">
-            <div class="tile-kicker">Agent fleet</div>
-            <h3 class="tile-title">Multi-agent operating system for a real firm.</h3>
+            <div class="tile-kicker">Aurora</div>
+            <h3 class="tile-title">A credible site shipped this week.</h3>
             <p class="tile-pitch">
-              Designed to run a firm, not a demo. Seven role-specific agents coordinate on Slack, ship code, run audits, brief operators daily.
+              You need a domain presence by Monday, not a six-month design sprint. Aurora is the productized website build run by the same fleet that ships our own portfolio.
             </p>
             <ul class="tile-bullets">
-              <li>Daily 07:00 ET executive standup, fully automated</li>
-              <li>Cross-agent peer review on every significant decision</li>
-              <li>Built and used in-house. Sold to firms ready to actually adopt it.</li>
+              <li>Scope call to public URL, same week (you're reading the proof)</li>
+              <li>Fixed-price, no retainer creep, no discovery phase</li>
+              <li>Built on the operating-grade fleet that runs this company</li>
             </ul>
-            <a href="#contact" class="tile-cta">See how the fleet runs <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Start my build <span class="arr">&rarr;</span></a>
           </article>
 
-          <!-- TILE 4: clog-busters -->
-          <article class="tile reveal">
-            <div class="tile-kicker">clog-busters</div>
-            <h3 class="tile-title">A Roblox simulator we own and operate.</h3>
-            <p class="tile-pitch">
-              An unblocking-simulator game live on Roblox, built and operated by the same fleet that runs everything else on this page. A game is one of our businesses. Not the whole story.
-            </p>
-            <ul class="tile-bullets">
-              <li>Live on Roblox. Weekly release cadence.</li>
-              <li>Our youngest line of business, our biggest reach</li>
-              <li>Operator-led, no publisher</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Play it <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 5: destiny -->
-          <article class="tile reveal">
-            <div class="tile-kicker">destiny</div>
-            <h3 class="tile-title">Algorithmic trading research.</h3>
-            <p class="tile-pitch">
-              A quant research stack. Backtests on Sonnet via the Max plan; live signals through the Anthropic API direct. Demo until profitable. Profit threshold is board-defined.
-            </p>
-            <ul class="tile-bullets">
-              <li>30-day kill-criteria framework. No vanity P&amp;L.</li>
-              <li>API costs accounted for in every claim</li>
-              <li>Not seeking allocators. Not selling signals.</li>
-            </ul>
-            <a href="#contact" class="tile-cta">Read the methodology memo <span class="arr">&rarr;</span></a>
-          </article>
-
-          <!-- TILE 6: ARIA -->
+          <!-- TILE 4: ARIA -->
           <article class="tile reveal">
             <div class="tile-kicker">ARIA</div>
-            <h3 class="tile-title">Autonomous content for faceless-travel.</h3>
+            <h3 class="tile-title">A content channel that ships without a studio.</h3>
             <p class="tile-pitch">
-              A YouTube engine that researches, scripts, voices, and renders travel shorts on its own. We supply the country list. The fleet supplies everything else.
+              You want a channel, not a content team. ARIA runs faceless travel on a daily cron, Greece, Iceland, more queued, twelve videos a week, no editors, no on-camera talent.
             </p>
             <ul class="tile-bullets">
-              <li>Daily-cadence renders. Zero human-in-the-loop ops.</li>
-              <li>Brand-clean audio (we built our own pronunciation normalizer)</li>
-              <li>One operator on the country pipeline. The rest is agents.</li>
+              <li>Daily-tick cron pipeline; 12 videos per week cadence sustained</li>
+              <li>A1 to A10 audit gate before any video publishes</li>
+              <li>Multi-country library (Greece, Iceland, more) under one operator</li>
             </ul>
-            <a href="#contact" class="tile-cta">Watch the latest drop <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">See a sample week <span class="arr">&rarr;</span></a>
           </article>
 
         </div>
