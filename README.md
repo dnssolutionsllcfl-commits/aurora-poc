@@ -12,7 +12,7 @@ That's it. No build step. Tailwind is pulled from CDN. Opens in any browser.
 
 ## Voice + design references
 
-- [Aurora Voice Guide v1.0](decisions/aurora-voice-guide-v1.md) — locked voice DNA (Ryan operator-direct corpus + banned phrases + locked headlines)
+- [Aurora Voice Guide v1.0](decisions/aurora-voice-guide-v1.md) · locked voice DNA (Ryan operator-direct corpus + banned phrases + locked headlines)
 - [ADR-001 Single-page IA](adr-001-single-page-ia.md)
 - [ADR-002 Color palette](adr-002-color-palette.md)
 - [ADR-003 Typography](adr-003-typography.md)
