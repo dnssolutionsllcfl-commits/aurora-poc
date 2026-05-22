@@ -499,6 +499,7 @@
       color: var(--navy);
     }
   </style>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -803,7 +804,11 @@
         document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
         return;
       }
-      if (typeof gsap === 'undefined') return;
+      if (typeof gsap === 'undefined') {
+        // Defensive: GSAP failed to load — force-reveal all content so page is never blank
+        document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
+        return;
+      }
       if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
       // Above-the-fold reveals fire on load with stagger.
