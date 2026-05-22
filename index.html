@@ -171,7 +171,7 @@
     .bg-white { background-color: #fff; }
     .bg-gray-50 { background-color: #f9fafb; }
     .text-white { color: #fff; }
-    .text-white\/40 { color: rgba(255,255,255,0.4); }
+    .text-white\/40 { color: rgba(255,255,255,0.55); /* AURORA-035 · was 0.4 = 3.78:1 FAIL on navy-deep; now 5.93:1 PASS */ }
 
     /* Responsive: md (>=768px) */
     @media (min-width: 768px) {
@@ -586,6 +586,13 @@
       margin: 0 0 0.9rem;
       flex-grow: 1;
     }
+    .case-context {
+      color: var(--ash);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0 0 0.55rem;
+    }
     .case-link {
       font-size: 0.84rem;
       font-weight: 600;
@@ -711,7 +718,8 @@
     @media (min-width: 768px) {
       .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; }
     }
-    .footer-col h4 {
+    /* AURORA-034 · heading-order · was h4 (broke h2 -> h4 progression); now h3 */
+    .footer-col h3 {
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
@@ -735,13 +743,15 @@
     .footer-link:focus-visible { box-shadow: 0 0 0 3px rgba(255,122,0,0.35); border-radius: 2px; }
     .footer-meta-credit {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.42);
+      /* AURORA-035 · was 0.42 = 4.01:1 FAIL on navy-deep; now 5.93:1 PASS */
+      color: rgba(255,255,255,0.55);
       margin-top: 0.55rem;
       line-height: 1.5;
     }
     .footer-disclaimer {
       font-size: 0.72rem;
-      color: rgba(255,255,255,0.42);
+      /* AURORA-035 · was 0.42 = 4.01:1 FAIL on navy-deep; now 5.93:1 PASS */
+      color: rgba(255,255,255,0.55);
       line-height: 1.55;
       max-width: 56ch;
     }
@@ -1110,14 +1120,14 @@
       </div>
     </section>
 
-    <!-- CASE-STUDY ROW (AURORA-017 · placeholder structure · final imagery + outcome lines pending Ryan-ratify per tile) -->
+    <!-- CASE-STUDY ROW (AURORA-017 · Ryan-ratified content · monogram tiles + outcome + client-context · client-safe redacted) -->
     <section id="case-studies" class="case-row" aria-labelledby="case-studies-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">Receipts</span>
           <h2 id="case-studies-h2" class="section-h">What the fleet has shipped.</h2>
           <p class="body-lead mt-5">
-            Four builds from the operating chassis. Client details redacted where required. Outcome lines pending principal sign-off before publication.
+            Four builds from the operating chassis. Client details are redacted where required. Deep-link case studies follow as each build is cleared for publication.
           </p>
         </div>
 
@@ -1125,46 +1135,50 @@
 
           <!-- CASE 1: Sentinel · enterprise integrator -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Sentinel case study placeholder">
+            <div class="case-monogram" role="img" aria-label="Sentinel case study tile">
               <span>S</span>
             </div>
             <div class="case-tag">Sentinel</div>
             <h3 class="case-title">Enterprise integrator, multi-site portal.</h3>
-            <p class="case-outcome">Outcome line pending principal sign-off.</p>
-            <a href="#contact" class="case-link" aria-label="Sentinel build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+            <p class="case-context">Enterprise &middot; 30+ sites &middot; multi-camera monitoring</p>
+            <p class="case-outcome">Stood up a single-pane portal across distributed sites, replacing manual camera checks with continuous status telemetry.</p>
+            <a href="#sentinel-build" class="case-link" aria-label="Read the Sentinel build">Read the build <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- CASE 2: Forge · service-business automation -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Forge case study placeholder">
+            <div class="case-monogram" role="img" aria-label="Forge case study tile">
               <span>F</span>
             </div>
             <div class="case-tag">Forge</div>
             <h3 class="case-title">Service-business back office, automated.</h3>
-            <p class="case-outcome">Outcome line pending principal sign-off.</p>
-            <a href="#contact" class="case-link" aria-label="Forge build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+            <p class="case-context">Service business &middot; multi-tenant intake &middot; paperwork automation</p>
+            <p class="case-outcome">Took intake, scheduling, and recurring-billing paperwork off the operator desk and onto an automated chassis with audit trail.</p>
+            <a href="#forge-build" class="case-link" aria-label="Read the Forge build">Read the build <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- CASE 3: Destiny · internal portfolio -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Destiny case study placeholder">
+            <div class="case-monogram" role="img" aria-label="Destiny case study tile">
               <span>D</span>
             </div>
             <div class="case-tag">Destiny · Internal LOB</div>
             <h3 class="case-title">Trading systems R&amp;D, in production.</h3>
-            <p class="case-outcome">Outcome line pending principal sign-off.</p>
-            <a href="#contact" class="case-link" aria-label="Destiny build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+            <p class="case-context">Internal · proprietary research · algorithmic trading platform</p>
+            <p class="case-outcome">Built an in-house research and execution chassis with kill-criteria gates that decide whether each strategy survives quarterly review.</p>
+            <a href="#destiny-build" class="case-link" aria-label="Read the Destiny build">Read the build <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- CASE 4: ARIA · content pipeline -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="ARIA case study placeholder">
+            <div class="case-monogram" role="img" aria-label="ARIA case study tile">
               <span>A</span>
             </div>
-            <div class="case-tag">ARIA</div>
+            <div class="case-tag">ARIA · Internal LOB</div>
             <h3 class="case-title">Faceless travel channel, daily cadence.</h3>
-            <p class="case-outcome">Outcome line pending principal sign-off.</p>
-            <a href="#contact" class="case-link" aria-label="ARIA build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+            <p class="case-context">Internal · autonomous content production · faceless travel channel</p>
+            <p class="case-outcome">Engineered an end-to-end production pipeline that drafts, voices, and publishes travel shorts on a daily cadence without on-camera talent.</p>
+            <a href="#aria-build" class="case-link" aria-label="Read the ARIA build">Read the build <span class="arr">&rarr;</span></a>
           </article>
 
         </div>
@@ -1336,7 +1350,7 @@
           </div>
 
           <nav class="footer-col" aria-label="Site">
-            <h4>Site</h4>
+            <h3>Site</h3>
             <ul>
               <li><a href="#portfolio" class="footer-link">Work</a></li>
               <li><a href="#case-studies" class="footer-link">Case studies</a></li>
@@ -1347,7 +1361,7 @@
           </nav>
 
           <nav class="footer-col" aria-label="Contact">
-            <h4>Reach us</h4>
+            <h3>Reach us</h3>
             <ul>
               <li><a href="mailto:ops@unrulylabslp.com" class="footer-link">ops@unrulylabslp.com</a></li>
               <li><a href="mailto:ops@unrulylabslp.com?subject=%5BSCOPE-CALL%5D%20Scope%20for%20Unruly%20Labs%20LP" class="footer-link">Send your scope</a></li>
@@ -1356,7 +1370,7 @@
           </nav>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs" style="color: rgba(255,255,255,0.42);">
+        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs" style="color: rgba(255,255,255,0.55);">
           <div>&copy; 2026 Unruly Labs LP. All rights reserved.</div>
           <div>Aurora v0.4 &middot; <a href="mailto:ops@unrulylabslp.com" class="footer-link" style="font-size: 0.75rem;">ops@unrulylabslp.com</a></div>
         </div>
