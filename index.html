@@ -301,8 +301,55 @@
       0%   { transform: translate3d(0, 0, 0) scale(1); }
       100% { transform: translate3d(-3%, 2%, 0) scale(1.06); }
     }
+    /* AURORA L1.5 · gradient-mesh hero background (Stripe-pattern lift) */
+    /* @property registers --angle for animatable conic-gradient rotation */
+    @property --angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    .hero-mesh {
+      position: absolute; inset: -20%;
+      background: conic-gradient(from var(--angle) at 50% 50%,
+        rgba(255,122,0,0.08) 0deg,
+        rgba(29,68,112,0.06) 90deg,
+        rgba(255,156,61,0.07) 180deg,
+        rgba(10,37,64,0.05) 270deg,
+        rgba(255,122,0,0.08) 360deg);
+      filter: blur(60px);
+      opacity: 0.65;
+      pointer-events: none;
+      will-change: transform;
+      animation: mesh-drift 11s linear infinite;
+      z-index: 0;
+    }
+    @keyframes mesh-drift {
+      0%   { --angle: 0deg; }
+      100% { --angle: 360deg; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .hero-glow { animation: none; }
+      .hero-mesh { animation: none; }
+    }
+    /* AURORA L1.5 · brand-mark SVG path-draw on first-load (Modal-pattern lift) */
+    /* Chevron path length is approx 34 units; dasharray 40 gives clean draw */
+    .nav-mark svg path {
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      animation: chevron-draw 1.2s ease-out forwards;
+    }
+    .nav-mark svg path:nth-of-type(1) { animation-delay: 0.1s; }
+    .nav-mark svg path:nth-of-type(2) { animation-delay: 0.3s; }
+    .nav-mark svg path:nth-of-type(3) { animation-delay: 0.5s; }
+    @keyframes chevron-draw {
+      to { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-mark svg path {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        animation: none;
+      }
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -677,7 +724,7 @@
     /* ---------- REVEAL ANIMATION ---------- */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 20px, 0);
+      transform: translate3d(0, 24px, 0);
       will-change: transform, opacity;
     }
     @media (prefers-reduced-motion: reduce) {
@@ -969,6 +1016,7 @@
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-h1">
+      <div class="hero-mesh" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 relative">
@@ -1143,7 +1191,7 @@
             <h3 class="case-title">Enterprise integrator, multi-site portal.</h3>
             <p class="case-context">Enterprise &middot; 30+ sites &middot; multi-camera monitoring</p>
             <p class="case-outcome">Stood up a single-pane portal across distributed sites, replacing manual camera checks with continuous status telemetry.</p>
-            <a href="#sentinel-build" class="case-link" aria-label="Read the Sentinel build">Read the build <span class="arr">&rarr;</span></a>
+            <a href="#sentinel-build" class="case-link" aria-label="Read the build, Sentinel case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
           </article>
 
           <!-- CASE 2: Forge · service-business automation -->
@@ -1155,7 +1203,7 @@
             <h3 class="case-title">Service-business back office, automated.</h3>
             <p class="case-context">Service business &middot; multi-tenant intake &middot; paperwork automation</p>
             <p class="case-outcome">Took intake, scheduling, and recurring-billing paperwork off the operator desk and onto an automated chassis with audit trail.</p>
-            <a href="#forge-build" class="case-link" aria-label="Read the Forge build">Read the build <span class="arr">&rarr;</span></a>
+            <a href="#forge-build" class="case-link" aria-label="Read the build, Forge case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
           </article>
 
           <!-- CASE 3: Destiny · internal portfolio -->
@@ -1167,7 +1215,7 @@
             <h3 class="case-title">Trading systems R&amp;D, in production.</h3>
             <p class="case-context">Internal · proprietary research · algorithmic trading platform</p>
             <p class="case-outcome">Built an in-house research and execution chassis with kill-criteria gates that decide whether each strategy survives quarterly review.</p>
-            <a href="#destiny-build" class="case-link" aria-label="Read the Destiny build">Read the build <span class="arr">&rarr;</span></a>
+            <a href="#destiny-build" class="case-link" aria-label="Read the build, Destiny case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
           </article>
 
           <!-- CASE 4: ARIA · content pipeline -->
@@ -1179,7 +1227,7 @@
             <h3 class="case-title">Faceless travel channel, daily cadence.</h3>
             <p class="case-context">Internal · autonomous content production · faceless travel channel</p>
             <p class="case-outcome">Engineered an end-to-end production pipeline that drafts, voices, and publishes travel shorts on a daily cadence without on-camera talent.</p>
-            <a href="#aria-build" class="case-link" aria-label="Read the ARIA build">Read the build <span class="arr">&rarr;</span></a>
+            <a href="#aria-build" class="case-link" aria-label="Read the build, ARIA case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
           </article>
 
         </div>
@@ -1399,9 +1447,9 @@
       gsap.to(heroReveals, {
         opacity: 1,
         y: 0,
-        duration: 0.85,
+        duration: 0.6,
         ease: 'power3.out',
-        stagger: 0.12,
+        stagger: 0.08,
         delay: 0.15
       });
 
@@ -1416,9 +1464,9 @@
         gsap.to(els, {
           opacity: 1,
           y: 0,
-          duration: 0.75,
+          duration: 0.6,
           ease: 'power3.out',
-          stagger: 0.09,
+          stagger: 0.08,
           scrollTrigger: {
             trigger: root,
             start: 'top 82%',
