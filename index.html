@@ -239,6 +239,8 @@
       --accent: #ff7a00;
       --accent-hot: #ff5a1f;
       --accent-soft: #ffe9d6;
+      /* AURORA-035 · WCAG-AA text variant of accent for use on white/paper surfaces (4.85:1 on white) */
+      --accent-text: #c14d00;
     }
 
     * { -webkit-tap-highlight-color: transparent; }
@@ -345,7 +347,8 @@
     }
     .btn-primary {
       background: var(--accent);
-      color: #fff;
+      /* AURORA-035 · WCAG-AA · navy text on accent = 5.95:1 vs old white = 2.61:1 FAIL */
+      color: var(--navy);
       box-shadow: 0 8px 24px -10px rgba(255,122,0,0.6);
     }
     .btn-primary:hover {
@@ -442,7 +445,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent);
+      /* AURORA-035 · WCAG-AA · accent-text 4.85:1 on white vs raw accent 2.61:1 FAIL */
+      color: var(--accent-text);
     }
     .tile-title {
       font-size: 1.4rem;
@@ -485,7 +489,7 @@
       padding-bottom: 2px;
       transition: color .15s ease, border-color .15s ease;
     }
-    .tile-cta:hover, .tile-cta:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+    .tile-cta:hover, .tile-cta:focus-visible { color: var(--accent-text); border-color: var(--accent); outline: none; }
     .tile-cta:focus-visible { box-shadow: 0 0 0 3px rgba(255,122,0,0.35); border-radius: 2px; }
     .tile-cta .arr { transition: transform .15s ease; display: inline-block; }
     .tile-cta:hover .arr, .tile-cta:focus-visible .arr { transform: translateX(4px); }
@@ -563,7 +567,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--accent);
+      /* AURORA-035 · WCAG-AA · accent-text 4.85:1 vs raw accent 2.61:1 FAIL */
+      color: var(--accent-text);
       margin-bottom: 0.4rem;
     }
     .case-title {
@@ -591,7 +596,8 @@
       transition: color .15s ease, border-color .15s ease;
     }
     .case-link:hover, .case-link:focus-visible {
-      color: var(--accent);
+      /* AURORA-035 · WCAG-AA · accent-text 4.85:1 vs raw accent 2.61:1 FAIL on paper */
+      color: var(--accent-text);
       border-color: var(--accent);
     }
     .case-link .arr { display: inline-block; transition: transform .15s ease; }
@@ -683,7 +689,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--accent);
+      /* AURORA-035 · WCAG-AA · accent-text 4.85:1 on white vs raw accent 2.61:1 FAIL */
+      color: var(--accent-text);
       margin-bottom: 0.6rem;
     }
     .section-h {
@@ -772,7 +779,8 @@
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 0.72rem;
       font-weight: 600;
-      color: var(--accent);
+      /* AURORA-035 · WCAG-AA · accent-text 4.85:1 vs raw accent 2.61:1 FAIL */
+      color: var(--accent-text);
       letter-spacing: 0.1em;
     }
     .principle-h {
@@ -842,27 +850,48 @@
       transform: translateY(-100%);
     }
 
-    /* ---------- AURORA-026 · HOVER + FOCUS-VISIBLE PATTERN LOCK ---------- */
+    /* ---------- AURORA-026 + AURORA-036 · HOVER + FOCUS-VISIBLE PATTERN LOCK ---------- */
+    /* AURORA-036 · Focus ring strategy:                                                */
+    /*   - Default (paper/ink/white surfaces): --accent-text #c14d00 = 4.57:1 PASS      */
+    /*   - .on-dark / nav-link / .btn-primary / .btn-ghost: --accent #ff7a00 + white   */
+    /*     fallback ring = 5.95:1 / 15.54:1 PASS on navy                                */
     .op-card:focus-within {
       transform: translateY(-3px);
       border-color: #cdd5df;
       box-shadow: 0 16px 32px -20px rgba(10, 37, 64, 0.2);
     }
+    /* Default: ALL focus rings on paper/white surfaces use --accent-text (4.57:1 AA) */
     a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid var(--accent-text);
       outline-offset: 3px;
       border-radius: 2px;
     }
-    .btn:focus-visible {
-      outline: 2px solid #fff;
+    /* On-dark override: nav, hero, prove-strip, cta-band, footer use --accent (5.95:1 AA on navy) */
+    .on-dark a:focus-visible, .on-dark button:focus-visible,
+    .nav-link:focus-visible,
+    .hero a:focus-visible, .hero button:focus-visible,
+    .prove-strip a:focus-visible, .prove-strip button:focus-visible,
+    .cta-band a:focus-visible, .cta-band button:focus-visible,
+    footer a:focus-visible, footer button:focus-visible {
+      outline: 2px solid var(--accent);
       outline-offset: 3px;
-      box-shadow: 0 0 0 5px rgba(255,122,0,0.5);
+      border-radius: 2px;
     }
     .nav-link:focus-visible {
       color: #fff;
-      outline: 2px solid var(--accent);
       outline-offset: 4px;
-      border-radius: 2px;
+    }
+    /* btn-primary lives on --accent bg, needs navy ring (5.95:1 inverse · stands off from button bg) */
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 5px rgba(255,255,255,0.55);
+    }
+    /* Non-primary .btn: keep white-outline + accent shadow halo */
+    .btn:not(.btn-primary):focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 5px rgba(255,122,0,0.5);
     }
 
     /* ---------- AURORA-028 · ANCHOR-SCROLL POLISH ---------- */
@@ -928,15 +957,15 @@
   <main id="main">
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-grid"></div>
-      <div class="hero-glow"></div>
+    <section class="hero" aria-labelledby="hero-h1">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 relative">
         <div class="reveal" data-reveal-order="1">
-          <span class="hero-eyebrow"><span class="pulse"></span>Compound operating company · Unruly Labs LP</span>
+          <span class="hero-eyebrow"><span class="pulse" aria-hidden="true"></span>Compound operating company &middot; Unruly Labs LP</span>
         </div>
 
-        <h1 class="hero-h1 mt-7 reveal" data-reveal-order="2">
+        <h1 id="hero-h1" class="hero-h1 mt-7 reveal" data-reveal-order="2">
           AI-native infrastructure for operating businesses.
         </h1>
 
@@ -985,11 +1014,11 @@
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="bg-white">
+    <section id="portfolio" class="bg-white" aria-labelledby="portfolio-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">What we run</span>
-          <h2 class="section-h">One operating company. Multiple lines of business. No slide-phase.</h2>
+          <h2 id="portfolio-h2" class="section-h">One operating company. Multiple lines of business. No slide-phase.</h2>
           <p class="body-lead mt-5">
             Same chassis underneath every line: principals plus an agent fleet. Receipts below, not promises.
           </p>
@@ -1082,11 +1111,11 @@
     </section>
 
     <!-- CASE-STUDY ROW (AURORA-017 · placeholder structure · final imagery + outcome lines pending Ryan-ratify per tile) -->
-    <section id="case-studies" class="case-row" aria-label="Case studies">
+    <section id="case-studies" class="case-row" aria-labelledby="case-studies-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">Receipts</span>
-          <h2 class="section-h">What the fleet has shipped.</h2>
+          <h2 id="case-studies-h2" class="section-h">What the fleet has shipped.</h2>
           <p class="body-lead mt-5">
             Four builds from the operating chassis. Client details redacted where required. Outcome lines pending principal sign-off before publication.
           </p>
@@ -1143,11 +1172,11 @@
     </section>
 
     <!-- OPERATORS -->
-    <section id="operators" class="bg-gray-50">
+    <section id="operators" class="bg-gray-50" aria-labelledby="operators-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">The operators</span>
-          <h2 class="section-h">Scars, not credentials.</h2>
+          <h2 id="operators-h2" class="section-h">Scars, not credentials.</h2>
         </div>
 
         <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -1162,7 +1191,10 @@
               </div>
             </div>
             <p class="body-prose mt-6">
-              Spent a decade inside the slowest companies in financial services (BNY Mellon as VP, BHG Financial as Senior PO) learning what <em>doesn't</em> ship. Brought that scar tissue to Unruly Labs. Owns the product line: what we build, who it's for, what we kill. Controller of the LP. Will tell you when the copy sucks.
+              Spent a decade inside slow-moving financial services orgs learning what <em>doesn't</em> ship. Brought that scar tissue to Unruly Labs LP. Owns what we build, who it's for, and what we kill. Controls the LP. Will tell you when the copy doesn't work.
+            </p>
+            <p class="body-prose mt-3" style="color: var(--ash); font-size: 0.95rem;">
+              Wrote the destiny kill-criteria spec (V1 &sect;10) that decides whether the internal trading practice survives quarterly review. Four kill-criteria, joint sign-off required. The same gate-discipline now runs across every Aurora engagement.
             </p>
             <div class="op-pull">
               "What can be done today, accomplish it. Tomorrow is not guaranteed."
@@ -1182,7 +1214,10 @@
               </div>
             </div>
             <p class="body-prose mt-6">
-              Five-plus years inside an enterprise IT org that supports 100,000+ users at AdventHealth, currently as Tier III Collaboration Analyst. The kind of operator who reads the firewall logs, not just the dashboards. Owns infrastructure, security, and the parts of this company that have to actually stay up.
+              Five-plus years inside an enterprise IT org supporting 100,000+ users, currently as Tier III Collaboration Analyst at AdventHealth. The kind of operator who reads the firewall logs, not just the dashboards. Owns infrastructure, security, and the parts of this company that have to actually stay up.
+            </p>
+            <p class="body-prose mt-3" style="color: var(--ash); font-size: 0.95rem;">
+              Authored the cross-agent release-verification config (<code class="mono" style="font-size: 0.85rem; background: rgba(10,37,64,0.06); padding: 1px 6px; border-radius: 4px;">.release-verify.yaml</code>) that gates every client-touching deploy across the LP. Every push runs the verify-suite before promotion; nothing ships without the gate.
             </p>
             <div class="op-pull">
               Every client-touching deploy gets a peer audit before it ships. Every one.
@@ -1202,11 +1237,11 @@
     </section>
 
     <!-- VOICE / METHOD · AURORA-020 -->
-    <section id="method" class="voice-method" aria-label="How we work">
+    <section id="method" class="voice-method" aria-labelledby="method-h">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div class="lg:col-span-6 reveal">
-            <span class="section-kicker">How we work</span>
+            <span id="method-h" class="section-kicker">How we work</span>
             <blockquote class="voice-pullquote mt-5">
               What can be done today, accomplish it. Tomorrow is not guaranteed.
               <span class="voice-pullquote-attr">Operating motto, Unruly Labs LP</span>
@@ -1236,12 +1271,12 @@
     </section>
 
     <!-- CTA BAND -->
-    <section id="contact" class="cta-band">
+    <section id="contact" class="cta-band" aria-labelledby="contact-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div class="lg:col-span-7 reveal">
             <span class="section-kicker" style="color: var(--accent);">Start here</span>
-            <h2 class="cta-h2 mt-2">
+            <h2 id="contact-h2" class="cta-h2 mt-2">
               <span style="color: #fff;">Send us your scope.</span><br/>
               <span style="color: var(--accent);">We send back a plan.</span>
             </h2>
@@ -1275,7 +1310,9 @@
       </div>
     </section>
 
-    <!-- FOOTER · AURORA-022 -->
+  </main>
+
+    <!-- FOOTER · AURORA-022 (outside <main> per a11y landmark spec) -->
     <footer role="contentinfo">
       <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="footer-grid">
@@ -1325,8 +1362,6 @@
         </div>
       </div>
     </footer>
-
-  </main>
 
   <script>
     // AURORA-025 · GSAP scroll-triggered reveal · transform + opacity only (60fps safe)
