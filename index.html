@@ -917,6 +917,7 @@
       <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
         <a href="#portfolio" class="nav-link">Work</a>
         <a href="#operators" class="nav-link">Operators</a>
+        <a href="#method" class="nav-link">How we work</a>
         <a href="#contact" class="nav-link">Contact</a>
         <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Start a build</a>
       </nav>
@@ -1200,6 +1201,40 @@
       </div>
     </section>
 
+    <!-- VOICE / METHOD · AURORA-020 -->
+    <section id="method" class="voice-method" aria-label="How we work">
+      <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-6 reveal">
+            <span class="section-kicker">How we work</span>
+            <blockquote class="voice-pullquote mt-5">
+              What can be done today, accomplish it. Tomorrow is not guaranteed.
+              <span class="voice-pullquote-attr">Operating motto, Unruly Labs LP</span>
+            </blockquote>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+              <div class="reveal principle">
+                <div class="principle-num">01</div>
+                <h3 class="principle-h">Receipts, not promises.</h3>
+                <p class="principle-p">We ship what we say we'll ship. Every claim on this page traces to live work. If it isn't running in production, it isn't on the site.</p>
+              </div>
+              <div class="reveal principle">
+                <div class="principle-num">02</div>
+                <h3 class="principle-h">Scope locked at the audit.</h3>
+                <p class="principle-p">We scope the work before we start it. Fixed-scope engagements, no retainer creep, no discovery phase that bills for the privilege of writing a proposal.</p>
+              </div>
+              <div class="reveal principle">
+                <div class="principle-num">03</div>
+                <h3 class="principle-h">Principals on every call.</h3>
+                <p class="principle-p">You talk to the people who write the code, audit the deploy, and own the outcome. No account managers between you and the work.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA BAND -->
     <section id="contact" class="cta-band">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
@@ -1215,41 +1250,78 @@
             </p>
           </div>
           <div class="lg:col-span-5 reveal">
-            <a href="mailto:ops@unrulylabslp.com?subject=Scope%20for%20Unruly%20Labs%20LP&amp;body=A%20paragraph%20on%20what%20you%20want%20built%2C%20by%20when%2C%20and%20what%20the%20constraint%20is." class="btn btn-primary text-lg" style="padding: 1.15rem 2rem; font-size: 1.05rem;">
+            <a href="mailto:ops@unrulylabslp.com?subject=%5BSCOPE-CALL%5D%20Scope%20for%20Unruly%20Labs%20LP&amp;body=A%20paragraph%20on%20what%20you%20want%20built%2C%20by%20when%2C%20and%20what%20the%20constraint%20is." class="btn btn-primary text-lg" style="padding: 1.15rem 2rem; font-size: 1.05rem;" aria-label="Start a build, opens email to ops at Unruly Labs LP">
               Start a build
             </a>
             <div class="mt-6 text-sm" style="color: rgba(255,255,255,0.7);">
               <div>Operations &middot; <a href="mailto:ops@unrulylabslp.com" class="text-link">ops@unrulylabslp.com</a></div>
-              <div class="mt-1.5">Reply inside one business day.</div>
+            </div>
+            <div class="sla-panel" role="group" aria-label="Engagement SLA">
+              <div class="sla-row">
+                <span class="sla-dot" aria-hidden="true"></span>
+                <div class="sla-text"><strong>Reply inside one business day.</strong> Or we tell you why we didn't.</div>
+              </div>
+              <div class="sla-row">
+                <span class="sla-dot" aria-hidden="true"></span>
+                <div class="sla-text"><strong>Scope call to public URL, same week.</strong> Audit first, ship next.</div>
+              </div>
+              <div class="sla-row">
+                <span class="sla-dot" aria-hidden="true"></span>
+                <div class="sla-text"><strong>Principals on every engagement.</strong> No account managers between you and the work.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- FOOTER · AURORA-022 -->
+    <footer role="contentinfo">
       <div class="max-w-6xl mx-auto px-6 py-12">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div class="footer-mark flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" role="img" aria-label="Unruly Labs LP" style="height: 32px; width: auto;">
-              <title>Unruly Labs LP</title>
-              <g>
-                <rect x="4" y="4" width="56" height="56" rx="10" fill="#0a2540"/>
-                <path d="M 14 38 L 26 26 L 38 38" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.35"/>
-                <path d="M 20 42 L 32 30 L 44 42" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.65"/>
-                <path d="M 26 46 L 38 34 L 50 46" fill="none" stroke="#ff7a00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <text x="76" y="40" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.5" fill="#ffffff">Unruly Labs LP</text>
-            </svg>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-mark flex items-center" style="margin-bottom: 0.85rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" role="img" aria-label="Unruly Labs LP" style="height: 32px; width: auto;">
+                <title>Unruly Labs LP</title>
+                <g>
+                  <rect x="4" y="4" width="56" height="56" rx="10" fill="#0a2540"/>
+                  <path d="M 14 38 L 26 26 L 38 38" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.35"/>
+                  <path d="M 20 42 L 32 30 L 44 42" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.65"/>
+                  <path d="M 26 46 L 38 34 L 50 46" fill="none" stroke="#ff7a00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <text x="76" y="40" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.5" fill="#ffffff">Unruly Labs LP</text>
+              </svg>
+            </div>
+            <p class="footer-disclaimer">
+              Unruly Labs LP is a limited partnership. Operator-led, principal-staffed, built in NY and FL. Content on this site reflects work currently in production or shipped to clients.
+            </p>
+            <p class="footer-meta-credit">Built by the fleet.</p>
           </div>
-          <div class="text-xs" style="color: rgba(255,255,255,0.55);">
-            Unruly Labs LP &middot; operator-led &middot; built in NY + FL
-          </div>
+
+          <nav class="footer-col" aria-label="Site">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="#portfolio" class="footer-link">Work</a></li>
+              <li><a href="#case-studies" class="footer-link">Case studies</a></li>
+              <li><a href="#operators" class="footer-link">Operators</a></li>
+              <li><a href="#method" class="footer-link">How we work</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-label="Contact">
+            <h4>Reach us</h4>
+            <ul>
+              <li><a href="mailto:ops@unrulylabslp.com" class="footer-link">ops@unrulylabslp.com</a></li>
+              <li><a href="mailto:ops@unrulylabslp.com?subject=%5BSCOPE-CALL%5D%20Scope%20for%20Unruly%20Labs%20LP" class="footer-link">Send your scope</a></li>
+              <li><a href="mailto:ops@unrulylabslp.com?subject=%5BAUDIT%5D%20Request%20an%20audit" class="footer-link">Request an audit</a></li>
+            </ul>
+          </nav>
         </div>
+
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs" style="color: rgba(255,255,255,0.42);">
-          <div>&copy; 2026 Unruly Labs LP</div>
-          <div>Aurora v0.3.1 &middot; <a href="mailto:ops@unrulylabslp.com" class="text-link" style="font-size: 0.75rem;">ops@unrulylabslp.com</a></div>
+          <div>&copy; 2026 Unruly Labs LP. All rights reserved.</div>
+          <div>Aurora v0.4 &middot; <a href="mailto:ops@unrulylabslp.com" class="footer-link" style="font-size: 0.75rem;">ops@unrulylabslp.com</a></div>
         </div>
       </div>
     </footer>
@@ -1257,9 +1329,11 @@
   </main>
 
   <script>
-    // GSAP scroll-triggered reveal: transform + opacity only (60fps safe)
+    // AURORA-025 · GSAP scroll-triggered reveal · transform + opacity only (60fps safe)
+    // · stagger per section · subtle slide-up + fade · no double-fires (once:true + flag)
     (function () {
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
         document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
         return;
       }
@@ -1281,24 +1355,70 @@
         delay: 0.15
       });
 
-      // Below-the-fold reveals fire on scroll.
-      var sections = ['#portfolio', '#case-studies', '#operators', '#contact'];
+      // Below-the-fold reveals fire on scroll · per-section stagger · once:true prevents double-fire.
+      var sections = ['#portfolio', '#case-studies', '#operators', '#method', '#contact'];
       sections.forEach(function (sel) {
         var root = document.querySelector(sel);
         if (!root) return;
+        if (root.dataset.revealFired === '1') return;
         var els = root.querySelectorAll('.reveal');
+        if (!els.length) return;
         gsap.to(els, {
           opacity: 1,
           y: 0,
           duration: 0.75,
           ease: 'power3.out',
-          stagger: 0.08,
+          stagger: 0.09,
           scrollTrigger: {
             trigger: root,
-            start: 'top 78%',
-            once: true
+            start: 'top 82%',
+            once: true,
+            onEnter: function () { root.dataset.revealFired = '1'; }
           }
         });
+      });
+    })();
+
+    // AURORA-027 · Header behavior on scroll · hide on down past 200px, reveal on up
+    // · border-bottom only after scroll · in-page anchors not broken (smooth-scroll preserved)
+    (function () {
+      var header = document.querySelector('header[role="banner"]');
+      if (!header) return;
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return; // honor reduced-motion · header stays static
+
+      var lastY = window.pageYOffset || 0;
+      var threshold = 200;
+      var ticking = false;
+
+      function onScroll() {
+        var y = window.pageYOffset || 0;
+        // Apply scrolled state (background + border) past threshold.
+        if (y > threshold) {
+          header.classList.add('nav-scrolled');
+          // Hide on scroll down · reveal on scroll up.
+          if (y > lastY + 6) {
+            header.classList.add('nav-hidden');
+          } else if (y < lastY - 6) {
+            header.classList.remove('nav-hidden');
+          }
+        } else {
+          header.classList.remove('nav-scrolled');
+          header.classList.remove('nav-hidden');
+        }
+        lastY = y;
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Ensure clicking in-page anchor reveals nav (so target isn't behind hidden header).
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function () { header.classList.remove('nav-hidden'); });
       });
     })();
   </script>
