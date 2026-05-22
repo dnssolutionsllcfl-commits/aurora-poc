@@ -3,27 +3,79 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unruly Labs LP – AI-native infrastructure for operating businesses</title>
+  <title>Unruly Labs LP · AI-native infrastructure</title>
   <meta name="description" content="Run leaner, ship faster, and put AI to work where it pays. AI-native infrastructure for operating businesses." />
   <meta name="theme-color" content="#0a2540" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://unrulylabslp.com/" />
   <!-- Open Graph -->
-  <meta property="og:title" content="Unruly Labs LP – AI-native infrastructure for operating businesses." />
+  <meta property="og:site_name" content="Unruly Labs LP" />
+  <meta property="og:title" content="Unruly Labs LP · AI-native infrastructure for operating businesses." />
   <meta property="og:description" content="Run leaner, ship faster, and put AI to work where it pays." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/" />
-  <meta property="og:image" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/og-image.svg" />
-  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:url" content="https://unrulylabslp.com/" />
+  <meta property="og:image" content="https://unrulylabslp.com/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Unruly Labs LP. AI-native infrastructure for operating businesses." />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Unruly Labs LP – AI-native infrastructure for operating businesses." />
+  <meta name="twitter:title" content="Unruly Labs LP · AI-native infrastructure for operating businesses." />
   <meta name="twitter:description" content="Run leaner, ship faster, and put AI to work where it pays." />
-  <meta name="twitter:image" content="https://dnssolutionsllcfl-commits.github.io/aurora-poc/og-image.svg" />
+  <meta name="twitter:image" content="https://unrulylabslp.com/og-image.png" />
   <meta name="twitter:image:alt" content="Unruly Labs LP. AI-native infrastructure for operating businesses." />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- JSON-LD · Organization + ProfessionalService · per AURORA-039 · Ryan + Darsan only, no enumeration -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://unrulylabslp.com/#organization",
+        "name": "Unruly Labs LP",
+        "url": "https://unrulylabslp.com/",
+        "logo": "https://unrulylabslp.com/og-image.png",
+        "email": "ops@unrulylabslp.com",
+        "description": "AI-native infrastructure for operating businesses. Run leaner, ship faster, and put AI to work where it pays.",
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Ryan Dhookaran",
+            "jobTitle": "Principal, Head of Product"
+          },
+          {
+            "@type": "Person",
+            "name": "Darsan Dinaram",
+            "jobTitle": "Principal, Head of Infrastructure and Security"
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://unrulylabslp.com/#service",
+        "name": "Unruly Labs LP",
+        "url": "https://unrulylabslp.com/",
+        "image": "https://unrulylabslp.com/og-image.png",
+        "description": "Productized AI-native build engagements for operating businesses. Fixed-scope, locked at the audit.",
+        "areaServed": "US",
+        "serviceType": [
+          "AI infrastructure consulting",
+          "Back-office automation",
+          "Monitoring and observability",
+          "Website and brand-presence builds",
+          "Content-pipeline operations"
+        ],
+        "provider": { "@id": "https://unrulylabslp.com/#organization" }
+      }
+    ]
+  }
+  </script>
 
   <!-- Typography · ADR-003 · Fraunces (display) + Inter (body) + JetBrains Mono (code) · subset Latin · display=swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -433,9 +485,117 @@
       padding-bottom: 2px;
       transition: color .15s ease, border-color .15s ease;
     }
-    .tile-cta:hover { color: var(--accent); border-color: var(--accent); }
+    .tile-cta:hover, .tile-cta:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+    .tile-cta:focus-visible { box-shadow: 0 0 0 3px rgba(255,122,0,0.35); border-radius: 2px; }
     .tile-cta .arr { transition: transform .15s ease; display: inline-block; }
-    .tile-cta:hover .arr { transform: translateX(4px); }
+    .tile-cta:hover .arr, .tile-cta:focus-visible .arr { transform: translateX(4px); }
+
+    /* Secondary tile CTA · "Talk to a principal" (REC-1) */
+    .tile-cta-secondary {
+      display: inline-block;
+      margin-top: 0.55rem;
+      margin-left: 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ash);
+      border-bottom: 1px dashed rgba(90, 107, 123, 0.4);
+      padding-bottom: 1px;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .tile-cta-secondary:hover, .tile-cta-secondary:focus-visible {
+      color: var(--navy);
+      border-color: var(--accent);
+      outline: none;
+    }
+    .tile-cta-secondary:focus-visible { box-shadow: 0 0 0 3px rgba(255,122,0,0.35); border-radius: 2px; }
+    .tile-cta-secondary .arr { transition: transform .15s ease; display: inline-block; }
+    .tile-cta-secondary:hover .arr, .tile-cta-secondary:focus-visible .arr { transform: translateX(3px); }
+    .tile-cta-secondary-onmeta { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.25); }
+    .tile-cta-secondary-onmeta:hover, .tile-cta-secondary-onmeta:focus-visible { color: #fff; border-color: var(--accent); }
+
+    /* ---------- CASE-STUDY ROW (AURORA-017 · placeholder · Ryan-ratify per tile before image-commit) ---------- */
+    .case-row {
+      background: var(--paper);
+    }
+    .case-tile {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.4rem;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .case-tile:hover {
+      transform: translateY(-3px);
+      border-color: #cdd5df;
+      box-shadow: 0 18px 36px -20px rgba(10, 37, 64, 0.22);
+    }
+    .case-monogram {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-monogram::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(40% 60% at 75% 25%, rgba(255,122,0,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .case-monogram span { position: relative; z-index: 1; }
+    .case-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .case-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--navy);
+      margin: 0 0 0.4rem;
+    }
+    .case-outcome {
+      color: #2c3a4a;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin: 0 0 0.9rem;
+      flex-grow: 1;
+    }
+    .case-link {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--navy);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .case-link:hover, .case-link:focus-visible {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    .case-link .arr { display: inline-block; transition: transform .15s ease; }
+    .case-link:hover .arr, .case-link:focus-visible .arr { transform: translateX(3px); }
 
     /* ---------- OPERATORS ---------- */
     .op-card {
@@ -533,6 +693,204 @@
       line-height: 1.1;
       color: var(--navy);
     }
+
+    /* ---------- AURORA-022 · FOOTER 3-COL ---------- */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; }
+    }
+    .footer-col h4 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.85rem;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col li { margin-bottom: 0.5rem; font-size: 0.88rem; }
+    .footer-link {
+      color: rgba(255,255,255,0.72);
+      transition: color .15s ease, border-color .15s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .footer-link:hover, .footer-link:focus-visible {
+      color: #fff;
+      border-color: var(--accent);
+      outline: none;
+    }
+    .footer-link:focus-visible { box-shadow: 0 0 0 3px rgba(255,122,0,0.35); border-radius: 2px; }
+    .footer-meta-credit {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.42);
+      margin-top: 0.55rem;
+      line-height: 1.5;
+    }
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.55;
+      max-width: 56ch;
+    }
+
+    /* ---------- AURORA-020 · VOICE / METHOD SECTION ---------- */
+    .voice-method {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .voice-pullquote {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      max-width: 32ch;
+      position: relative;
+      padding-left: 1.4rem;
+      border-left: 4px solid var(--accent);
+    }
+    .voice-pullquote-attr {
+      display: block;
+      margin-top: 1rem;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-style: normal;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ash);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .principle-num {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .principle-h {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 0.4rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .principle-p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #2c3a4a;
+    }
+
+    /* ---------- AURORA-021 · CTA-CLOSE SLA PANEL ---------- */
+    .sla-panel {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .sla-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.55rem 0;
+    }
+    .sla-row + .sla-row { border-top: 1px solid rgba(255,255,255,0.06); }
+    .sla-dot {
+      flex-shrink: 0;
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--accent);
+      margin-top: 0.55rem;
+      box-shadow: 0 0 0 0 rgba(255,122,0,0.6);
+      animation: ctaPulse 2.4s infinite;
+    }
+    @keyframes ctaPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255,122,0,0.55); }
+      70%  { box-shadow: 0 0 0 8px rgba(255,122,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,122,0,0); }
+    }
+    .sla-text {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .sla-text strong { color: #fff; }
+
+    /* ---------- AURORA-027 · NAV-SCROLL BEHAVIOR ---------- */
+    header[role="banner"] {
+      transition: transform .25s ease, background-color .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+      will-change: transform;
+    }
+    header[role="banner"].nav-scrolled {
+      background: rgba(10, 37, 64, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: fixed;
+    }
+    header[role="banner"].nav-hidden {
+      transform: translateY(-100%);
+    }
+
+    /* ---------- AURORA-026 · HOVER + FOCUS-VISIBLE PATTERN LOCK ---------- */
+    .op-card:focus-within {
+      transform: translateY(-3px);
+      border-color: #cdd5df;
+      box-shadow: 0 16px 32px -20px rgba(10, 37, 64, 0.2);
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    .btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+      box-shadow: 0 0 0 5px rgba(255,122,0,0.5);
+    }
+    .nav-link:focus-visible {
+      color: #fff;
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    /* ---------- AURORA-028 · ANCHOR-SCROLL POLISH ---------- */
+    section[id] {
+      scroll-margin-top: 96px;
+    }
+
+    /* ---------- AURORA-029 · prefers-reduced-motion FULL AUDIT ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .hero-glow { animation: none !important; }
+      .hero-eyebrow .pulse { animation: none !important; box-shadow: none !important; }
+      .sla-dot { animation: none !important; box-shadow: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .tile:hover, .op-card:hover, .tile-meta:hover {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+      .btn-primary:hover { transform: none !important; box-shadow: 0 8px 24px -10px rgba(255,122,0,0.6) !important; }
+      .tile-cta:hover .arr, .tile-cta-secondary:hover .arr { transform: none !important; }
+      header[role="banner"] { transition: none !important; }
+      header[role="banner"].nav-hidden { transform: none !important; }
+    }
   </style>
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
@@ -612,10 +970,10 @@
             </p>
           </div>
           <div class="stat-cell reveal" data-reveal-order="7" data-stat="operator-led" data-source="principals-sla">
-            <div class="stat-num">Principals on every engagement</div>
+            <div class="stat-num">Reply inside one business day</div>
             <div class="stat-label">Operator-led</div>
             <p class="body-prose mt-2" style="color: rgba(255,255,255,0.72); font-size: 0.88rem; line-height: 1.5;">
-              Reply inside one business day. No account managers between you and the work.
+              Principals on every engagement. No account managers between you and the work.
             </p>
           </div>
         </div>
@@ -651,6 +1009,7 @@
               <li>Quote, invoice, follow-up flows live in days, not quarters</li>
             </ul>
             <a href="#contact" class="tile-cta">Book an audit <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta-secondary">Talk to a principal <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 2: Sentinel -->
@@ -666,6 +1025,7 @@
               <li>Daily client-facing reports drafted automatically, executive-grade</li>
             </ul>
             <a href="#contact" class="tile-cta">Scope a fleet <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta-secondary">Talk to a principal <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 3: Aurora -->
@@ -677,10 +1037,11 @@
             </p>
             <ul class="tile-bullets">
               <li>Scope call to public URL, same week (you're reading the proof)</li>
-              <li>Fixed-scope, no retainer creep, no discovery phase</li>
+              <li>Scope locked at audit, ship public URL same week, receipts every Friday</li>
               <li>Built on the operating-grade fleet that runs this company</li>
             </ul>
             <a href="#contact" class="tile-cta">Start a build <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta-secondary">Talk to a principal <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 4: ARIA -->
@@ -696,6 +1057,7 @@
               <li>Multi-country library (Greece, Iceland, more) under one operator</li>
             </ul>
             <a href="#contact" class="tile-cta">See a sample week <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta-secondary">Talk to a principal <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 5: Aurora consulting · meta-tile spans full width at lg+ -->
@@ -711,6 +1073,68 @@
               <li>Pulls from Forge, Sentinel, Aurora-build, and ARIA patterns when the work overlaps</li>
             </ul>
             <a href="#contact" class="tile-cta">Send your scope <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta-secondary tile-cta-secondary-onmeta">Talk to a principal <span class="arr">&rarr;</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE-STUDY ROW (AURORA-017 · placeholder structure · final imagery + outcome lines pending Ryan-ratify per tile) -->
+    <section id="case-studies" class="case-row" aria-label="Case studies">
+      <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
+        <div class="max-w-3xl reveal">
+          <span class="section-kicker">Receipts</span>
+          <h2 class="section-h">What the fleet has shipped.</h2>
+          <p class="body-lead mt-5">
+            Four builds from the operating chassis. Client details redacted where required. Outcome lines pending principal sign-off before publication.
+          </p>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- CASE 1: Sentinel · enterprise integrator -->
+          <article class="case-tile reveal">
+            <div class="case-monogram" role="img" aria-label="Sentinel case study placeholder">
+              <span>S</span>
+            </div>
+            <div class="case-tag">Sentinel</div>
+            <h3 class="case-title">Enterprise integrator, multi-site portal.</h3>
+            <p class="case-outcome">Outcome line pending principal sign-off.</p>
+            <a href="#contact" class="case-link" aria-label="Sentinel build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+          </article>
+
+          <!-- CASE 2: Forge · service-business automation -->
+          <article class="case-tile reveal">
+            <div class="case-monogram" role="img" aria-label="Forge case study placeholder">
+              <span>F</span>
+            </div>
+            <div class="case-tag">Forge</div>
+            <h3 class="case-title">Service-business back office, automated.</h3>
+            <p class="case-outcome">Outcome line pending principal sign-off.</p>
+            <a href="#contact" class="case-link" aria-label="Forge build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+          </article>
+
+          <!-- CASE 3: Destiny · internal portfolio -->
+          <article class="case-tile reveal">
+            <div class="case-monogram" role="img" aria-label="Destiny case study placeholder">
+              <span>D</span>
+            </div>
+            <div class="case-tag">Destiny · Internal LOB</div>
+            <h3 class="case-title">Trading systems R&amp;D, in production.</h3>
+            <p class="case-outcome">Outcome line pending principal sign-off.</p>
+            <a href="#contact" class="case-link" aria-label="Destiny build, pending publication">Read the build <span class="arr">&rarr;</span></a>
+          </article>
+
+          <!-- CASE 4: ARIA · content pipeline -->
+          <article class="case-tile reveal">
+            <div class="case-monogram" role="img" aria-label="ARIA case study placeholder">
+              <span>A</span>
+            </div>
+            <div class="case-tag">ARIA</div>
+            <h3 class="case-title">Faceless travel channel, daily cadence.</h3>
+            <p class="case-outcome">Outcome line pending principal sign-off.</p>
+            <a href="#contact" class="case-link" aria-label="ARIA build, pending publication">Read the build <span class="arr">&rarr;</span></a>
           </article>
 
         </div>
@@ -858,7 +1282,7 @@
       });
 
       // Below-the-fold reveals fire on scroll.
-      var sections = ['#portfolio', '#operators', '#contact'];
+      var sections = ['#portfolio', '#case-studies', '#operators', '#contact'];
       sections.forEach(function (sel) {
         var root = document.querySelector(sel);
         if (!root) return;
