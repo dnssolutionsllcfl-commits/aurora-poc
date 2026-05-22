@@ -1,0 +1,76 @@
+# .release-verify.yaml — aurora-poc Phase 1 release-verification config
+# Schema: lp-base (Unruly Labs LP release-hygiene framework v1)
+# Authored by Atlas 2026-05-22; reviewed before Potter commits to dnssolutionsllcfl-commits/aurora-poc
+
+schema_version: 1.0
+repo: dnssolutionsllcfl-commits/aurora-poc
+maintainer: atlas+potter+groot
+
+# Target URLs
+staging_url: https://staging.unrulylabslp.com
+prod_url: https://unrulylabslp.com
+
+# Universal LP-base checks (run on every release)
+checks:
+  - id: http_ok
+    type: http_status
+    expected: 200
+    timeout_ms: 8000
+    description: "Staging URL responds HTTP 200"
+
+  - id: title_non_empty
+    type: page_title_not_empty
+    forbidden_values:
+      - ""
+      - "undefined"
+      - "404"
+      - "Not Found"
+    description: "Page title not empty/error"
+
+  - id: ssl_valid
+    type: ssl_cert_valid
+    min_days_to_expiry: 30
+    description: "HTTPS cert valid + expires >30d out"
+
+  - id: console_errors
+    type: console_error_count
+    max: 0
+    settle_ms: 5000
+    description: "Zero console.error within 5s of load"
+
+  - id: console_warnings
+    type: console_warning_count
+    max: 5
+    settle_ms: 5000
+    description: "<=5 console.warn within 5s of load"
+
+  # Aurora-specific checks (catches the GSAP-CDN-fail blank-page bug exactly)
+  - id: aurora_hero_visible
+    type: dom_visible
+    selector: ".reveal"
+    min_opacity: 0.5
+    timeout_ms: 5000
+    description: "Aurora hero .reveal elements opacity>0.5 within 5s (catches blank-page bug)"
+
+  - id: aurora_hero_text_present
+    type: text_present
+    text: "AI-native infrastructure"
+    timeout_ms: 3000
+    description: "Hero copy 'AI-native infrastructure' visible (catches copy mis-deploy)"
+
+  - id: lighthouse_perf
+    type: lighthouse_perf
+    min: 80
+    warn_only: true
+    description: "Lighthouse perf score >=80 (warn-only; doesn't block)"
+
+# Verdict aggregation
+fail_fast: false  # Run all checks; surface all failures together
+output_dir: output/release-verify
+screenshot_on_fail: true
+screenshot_on_pass_sample: false
+
+# Migration mode (per joint spec Section G + 5-Q answer #5)
+mode: audit_only
+mode_expires_at: "2026-05-24T01:03Z"  # 48h from 2026-05-22 01:03Z auto-execute fire
+mode_post_expiry: blocking
