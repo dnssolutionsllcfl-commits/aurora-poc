@@ -25,6 +25,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="alternate icon" href="/favicon.ico" />
 
+  <!-- Typography · ADR-003 · Fraunces (display) + Inter (body) + JetBrains Mono (code) · subset Latin · display=swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
@@ -133,6 +139,7 @@
     /* Responsive: lg (>=1024px) */
     @media (min-width: 1024px) {
       .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lg\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
       .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
       .lg\:col-span-5 { grid-column: span 5 / span 5; }
       .lg\:col-span-7 { grid-column: span 7 / span 7; }
@@ -183,7 +190,7 @@
     }
 
     * { -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--ink);
@@ -193,6 +200,14 @@
       overflow-x: hidden;
     }
     h1, h2, h3, h4 { letter-spacing: -0.02em; }
+    /* ADR-003 · Headlines in Fraunces 700 · body stays Inter · code in JetBrains Mono */
+    h1, h2, h3, h4, .hero-h1, .section-h, .cta-h2, .tile-title {
+      font-family: 'Fraunces', Georgia, 'Times New Roman', Times, serif;
+      font-optical-sizing: auto;
+    }
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
     .h-display { font-weight: 800; line-height: 1.02; letter-spacing: -0.04em; }
     .h-section { font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
     .body-lead { font-size: 1.125rem; line-height: 1.6; color: var(--ash); }
@@ -329,6 +344,23 @@
     }
 
     /* ---------- PORTFOLIO ---------- */
+    /* Bento: 4 LOB tiles 2-per-row + 1 full-width consulting meta-tile · lg+ only */
+    @media (min-width: 1024px) {
+      .bento .tile { grid-column: span 3 / span 3; }
+      .bento .tile-meta { grid-column: span 6 / span 6; }
+    }
+    .tile-meta {
+      background: linear-gradient(135deg, #0a2540 0%, #13314f 100%);
+      color: #fff;
+      border-color: transparent;
+    }
+    .tile-meta .tile-kicker { color: var(--accent); }
+    .tile-meta .tile-title { color: #fff; }
+    .tile-meta .tile-pitch { color: rgba(255,255,255,0.82); }
+    .tile-meta .tile-bullets li { color: rgba(255,255,255,0.78); }
+    .tile-meta .tile-cta { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .tile-meta .tile-cta:hover { color: var(--accent); border-color: var(--accent); }
+    .tile-meta:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -20px rgba(10, 37, 64, 0.45); }
     .tile {
       position: relative;
       background: #fff;
@@ -525,12 +557,12 @@
         </svg>
       </a>
       <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
-        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#portfolio" class="nav-link">Work</a>
         <a href="#operators" class="nav-link">Operators</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Get an audit</a>
+        <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Start a build</a>
       </nav>
-      <a href="#contact" class="md:hidden btn btn-primary" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Get an audit">Audit</a>
+      <a href="#contact" class="md:hidden btn btn-primary" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Start a build">Start</a>
     </div>
   </header>
 
@@ -554,9 +586,9 @@
         </p>
 
         <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 reveal" data-reveal-order="4">
-          <a href="#contact" class="btn btn-primary">Get an audit</a>
-          <a href="#portfolio" class="text-link">See what we run</a>
-          <a href="#operators" class="text-link">Read the operator memo &rarr;</a>
+          <a href="#contact" class="btn btn-primary">Start a build</a>
+          <a href="#portfolio" class="text-link">See our work</a>
+          <a href="#operators" class="text-link">How we work &rarr;</a>
         </div>
       </div>
     </section>
@@ -604,21 +636,21 @@
           </p>
         </div>
 
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 bento">
 
           <!-- TILE 1: Forge -->
           <article class="tile reveal">
             <div class="tile-kicker">Forge</div>
             <h3 class="tile-title">Your back office runs without you.</h3>
             <p class="tile-pitch">
-              Your service business is drowning in dues chases, intake forms, and follow-ups nobody has time for. Forge automates the paperwork your team hates. Start with a $750 audit, ship the build in weeks.
+              Your service business is drowning in dues chases, intake forms, and follow-up nobody has time for. Forge automates the paperwork your team hates. Start with an audit, ship the build in weeks.
             </p>
             <ul class="tile-bullets">
-              <li>$750 audit · $3.5K to $7.5K build · $99 to $249/mo managed</li>
+              <li>Audit · build · managed-services tier · all-inclusive</li>
               <li>Florida warm-network pilot: HOA boards, home-service operators, local SMB</li>
               <li>Quote, invoice, follow-up flows live in days, not quarters</li>
             </ul>
-            <a href="#contact" class="tile-cta">Book my audit <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Book an audit <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 2: Sentinel -->
@@ -633,7 +665,7 @@
               <li>Per-site row dashboard, binary PASS/FAIL verdicts, no log-diving</li>
               <li>Daily client-facing reports drafted automatically, executive-grade</li>
             </ul>
-            <a href="#contact" class="tile-cta">Scope my fleet <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Scope a fleet <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 3: Aurora -->
@@ -645,10 +677,10 @@
             </p>
             <ul class="tile-bullets">
               <li>Scope call to public URL, same week (you're reading the proof)</li>
-              <li>Fixed-price, no retainer creep, no discovery phase</li>
+              <li>Fixed-scope, no retainer creep, no discovery phase</li>
               <li>Built on the operating-grade fleet that runs this company</li>
             </ul>
-            <a href="#contact" class="tile-cta">Start my build <span class="arr">&rarr;</span></a>
+            <a href="#contact" class="tile-cta">Start a build <span class="arr">&rarr;</span></a>
           </article>
 
           <!-- TILE 4: ARIA -->
@@ -666,6 +698,21 @@
             <a href="#contact" class="tile-cta">See a sample week <span class="arr">&rarr;</span></a>
           </article>
 
+          <!-- TILE 5: Aurora consulting · meta-tile spans full width at lg+ -->
+          <article class="tile tile-meta reveal" id="aurora-consulting">
+            <div class="tile-kicker">Aurora · Consulting practice</div>
+            <h3 class="tile-title">The fleet that ships our portfolio will ship yours.</h3>
+            <p class="tile-pitch">
+              Aurora is the consulting practice underneath the lines above. Same operating chassis, available to you. Fixed-scope engagements, no retainer creep, no discovery phase. Use Aurora when you need a credible v1 of something, not a six-month roadmap.
+            </p>
+            <ul class="tile-bullets">
+              <li>Fixed-scope engagements; locked at the audit, not after</li>
+              <li>Principals on the call, agent fleet on the build, receipts shipped weekly</li>
+              <li>Pulls from Forge, Sentinel, Aurora-build, and ARIA patterns when the work overlaps</li>
+            </ul>
+            <a href="#contact" class="tile-cta">Send your scope <span class="arr">&rarr;</span></a>
+          </article>
+
         </div>
       </div>
     </section>
@@ -675,7 +722,7 @@
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">The operators</span>
-          <h2 class="section-h">Two principals. No outside investors. Scars, not credentials.</h2>
+          <h2 class="section-h">Scars, not credentials.</h2>
         </div>
 
         <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -723,7 +770,7 @@
 
         <div class="mt-10 max-w-3xl body-prose reveal">
           <p>
-            <strong style="color: var(--navy);">The fleet.</strong> Seven role-specific agents do the work between the principals: Atlas (LP-side CEO), Potter (operating-side CEO), Groot (CTO, clog-busters), Vulcan (audit), ARIA-Koda (content), destiny-Koda (quant), Diana (recruiting). They don't replace operators. They make two principals run like twelve.
+            <strong style="color: var(--navy);">The fleet.</strong> An agent fleet runs the work between the principals: CEOs, CTOs, auditors, content, quant, recruiting. Each role has a dedicated agent with a locked scope and a paper trail. The fleet doesn't replace operators. It lets a small team run like a much larger one.
           </p>
         </div>
       </div>
@@ -736,20 +783,20 @@
           <div class="lg:col-span-7 reveal">
             <span class="section-kicker" style="color: var(--accent);">Start here</span>
             <h2 class="cta-h2 mt-2">
-              <span style="color: #fff;">Send us your URL.</span><br/>
-              <span style="color: var(--accent);">We send back an audit.</span>
+              <span style="color: #fff;">Send us your scope.</span><br/>
+              <span style="color: var(--accent);">We send back a plan.</span>
             </h2>
             <p class="hero-sub mt-6 max-w-xl">
-              No NDA on first contact. No sales call before we read your scope. Reply inside one business day or we'll tell you why we didn't.
+              No NDA on first contact. No sales call before we read what you sent. Reply inside one business day, or we'll tell you why we didn't.
             </p>
           </div>
           <div class="lg:col-span-5 reveal">
-            <a href="mailto:ops@unrulylabslp.com?subject=Aurora%20audit%20request" class="btn btn-primary text-lg" style="padding: 1.15rem 2rem; font-size: 1.05rem;">
-              Get an audit
+            <a href="mailto:ops@unrulylabslp.com?subject=Scope%20for%20Unruly%20Labs%20LP&amp;body=A%20paragraph%20on%20what%20you%20want%20built%2C%20by%20when%2C%20and%20what%20the%20constraint%20is." class="btn btn-primary text-lg" style="padding: 1.15rem 2rem; font-size: 1.05rem;">
+              Start a build
             </a>
             <div class="mt-6 text-sm" style="color: rgba(255,255,255,0.7);">
               <div>Operations &middot; <a href="mailto:ops@unrulylabslp.com" class="text-link">ops@unrulylabslp.com</a></div>
-              <div class="mt-1.5">Response inside one business day.</div>
+              <div class="mt-1.5">Reply inside one business day.</div>
             </div>
           </div>
         </div>
@@ -773,7 +820,7 @@
             </svg>
           </div>
           <div class="text-xs" style="color: rgba(255,255,255,0.55);">
-            Unruly Labs LP &middot; operator-led &middot; zero outside capital &middot; built in NY + FL
+            Unruly Labs LP &middot; operator-led &middot; built in NY + FL
           </div>
         </div>
         <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs" style="color: rgba(255,255,255,0.42);">
@@ -793,7 +840,7 @@
         return;
       }
       if (typeof gsap === 'undefined') {
-        // Defensive: GSAP failed to load — force-reveal all content so page is never blank
+        // Defensive: GSAP failed to load, force-reveal all content so page is never blank
         document.querySelectorAll('.reveal').forEach(function (el) { el.style.opacity = 1; el.style.transform = 'none'; });
         return;
       }
