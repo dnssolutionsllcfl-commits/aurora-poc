@@ -384,14 +384,23 @@
     }
 
     .hero-h1 {
-      font-size: clamp(1.5rem, 6.4vw, 5.6rem);
+      font-size: clamp(1.75rem, 6.4vw, 5.6rem);
       font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.035em;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       overflow-wrap: break-word;
       hyphens: auto;
       -webkit-hyphens: auto;
       text-wrap: balance;
+    }
+    /* Mobile-specific hero h1 sizing · Fraunces serif renders wider than expected · explicit
+       override at small viewports to keep AI-native-infrastructure on its own line at 360px+ */
+    @media (max-width: 414px) {
+      .hero-h1 {
+        font-size: 1.35rem;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
     }
     .hero-h1 .num {
       background: linear-gradient(135deg, #ff7a00 0%, #ff9c3d 60%, #ffd58a 100%);
