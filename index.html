@@ -393,13 +393,20 @@
       -webkit-hyphens: auto;
       text-wrap: balance;
     }
-    /* Mobile-specific hero h1 sizing · Fraunces serif renders wider than expected · explicit
-       override at small viewports to keep AI-native-infrastructure on its own line at 360px+ */
+    /* Mobile-specific hero sizing · h1 + eyebrow + sub-head get tightened to fit
+       narrow viewports (iPhone SE 360px and similar) without horizontal overflow */
     @media (max-width: 414px) {
       .hero-h1 {
         font-size: 1.35rem;
         line-height: 1.1;
         letter-spacing: -0.03em;
+      }
+      .hero-eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        padding: 0.3rem 0.65rem;
+        max-width: 100%;
+        flex-wrap: wrap;
       }
     }
     .hero-h1 .num {
