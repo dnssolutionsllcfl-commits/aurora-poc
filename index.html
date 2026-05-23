@@ -1060,8 +1060,34 @@
         <a href="#contact" class="nav-link">Contact</a>
         <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Start a build</a>
       </nav>
-      <a href="#contact" class="md:hidden btn btn-primary" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Start a build">Start</a>
+      <div class="flex md:hidden items-center gap-3">
+        <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;" aria-label="Start a build">Start</a>
+        <button id="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"
+                style="width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.18); border-radius: 8px; color: #fff; cursor: pointer; padding: 0;">
+          <svg id="mobile-menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="mobile-menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile menu panel (hidden by default · toggled by #mobile-menu-toggle) -->
+    <nav id="mobile-menu" class="md:hidden" aria-label="Primary mobile" hidden
+         style="position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,37,64,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
+      <a href="#portfolio" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Work</a>
+      <a href="#operators" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Operators</a>
+      <a href="#services" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Services</a>
+      <a href="#why-us" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Why us</a>
+      <a href="#method" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">How we work</a>
+      <a href="#contact" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem;">Contact</a>
+      <a href="#contact" class="btn btn-primary mt-3" style="padding: 0.75rem 1.1rem; font-size: 0.95rem; justify-content: center;">Start a build</a>
+    </nav>
   </header>
 
   <main id="main">
@@ -1855,6 +1881,57 @@
       // Ensure clicking in-page anchor reveals nav (so target isn't behind hidden header).
       document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function () { header.classList.remove('nav-hidden'); });
+      });
+    })();
+
+    // Mobile hamburger menu toggle
+    (function () {
+      var toggle = document.getElementById('mobile-menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('mobile-menu-icon-open');
+      var iconClose = document.getElementById('mobile-menu-icon-close');
+      if (!toggle || !menu) return;
+
+      function setOpen(open) {
+        if (open) {
+          menu.removeAttribute('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.setAttribute('aria-label', 'Close menu');
+          iconOpen.style.display = 'none';
+          iconClose.style.display = '';
+        } else {
+          menu.setAttribute('hidden', '');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+          iconOpen.style.display = '';
+          iconClose.style.display = 'none';
+        }
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(menu.hasAttribute('hidden'));
+      });
+
+      // Close on link click
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !menu.hasAttribute('hidden')) {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+
+      // Close on click outside header
+      document.addEventListener('click', function (e) {
+        if (menu.hasAttribute('hidden')) return;
+        var header = document.querySelector('header[role="banner"]');
+        if (header && !header.contains(e.target)) {
+          setOpen(false);
+        }
       });
     })();
   </script>
