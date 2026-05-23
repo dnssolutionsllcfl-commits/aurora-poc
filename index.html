@@ -652,6 +652,17 @@
       color: var(--accent-text);
       margin-bottom: 0.4rem;
     }
+    /* Status badge · portfolio receipts row · WCAG-AA contrast verified */
+    .status-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .status-badge--live { background: rgba(34, 139, 80, 0.15); color: #1f6e3f; }
+    .status-badge--inflight { background: rgba(255, 122, 0, 0.15); color: #b8540e; }
     .case-title {
       font-size: 1.05rem;
       font-weight: 700;
@@ -1485,7 +1496,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">Sentinel</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
+              <span class="status-badge status-badge--live">LIVE</span>
             </div>
             <h3 class="case-title mt-3">Sentinel for Enterprise Integrator</h3>
             <p class="case-context">Enterprise integrator &middot; multi-site portal plus camera monitoring across distributed client locations</p>
@@ -1502,7 +1513,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">Forge</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255, 122, 0, 0.15); color: #b8540e; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">IN-FLIGHT</span>
+              <span class="status-badge status-badge--inflight">IN-FLIGHT</span>
             </div>
             <h3 class="case-title mt-3">Forge Florida Pilot</h3>
             <p class="case-context">Service-business back office automation for an HOA board and a home-service operator</p>
@@ -1519,7 +1530,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">Aurora</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
+              <span class="status-badge status-badge--live">LIVE</span>
             </div>
             <h3 class="case-title mt-3">Aurora LP-Meta Site</h3>
             <p class="case-context">This site. The portfolio entry is the portfolio.</p>
@@ -1536,7 +1547,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">Destiny &middot; Internal LOB</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
+              <span class="status-badge status-badge--live">LIVE</span>
             </div>
             <h3 class="case-title mt-3">Destiny Trading Platform</h3>
             <p class="case-context">Proprietary algorithmic trading research and execution platform, in production on a live prop account</p>
@@ -1553,7 +1564,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">ARIA &middot; Internal LOB</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
+              <span class="status-badge status-badge--live">LIVE</span>
             </div>
             <h3 class="case-title mt-3">ARIA Travel Channel</h3>
             <p class="case-context">Faceless travel content pipeline, twelve videos per week on a daily cadence, no on-camera talent</p>
@@ -1570,7 +1581,7 @@
           <article class="case-tile reveal">
             <div class="flex items-center gap-3" style="flex-wrap: wrap;">
               <div class="case-tag">clog-busters &middot; Internal LOB</div>
-              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255, 122, 0, 0.15); color: #b8540e; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">IN-FLIGHT</span>
+              <span class="status-badge status-badge--inflight">IN-FLIGHT</span>
             </div>
             <h3 class="case-title mt-3">clog-busters Multi-Agent Build</h3>
             <p class="case-context">Roblox gaming-vertical agent buildout, live UAT pipeline shipping pull requests at sprint cadence</p>
