@@ -1,0 +1,7 @@
+# robots.txt for unrulylabslp.com
+# Last updated 2026-05-23 by Vista per Potter dispatch ts 1779572557 (ITEM-B)
+
+User-agent: *
+Allow: /
+
+Sitemap: https://unrulylabslp.com/sitemap.xml
