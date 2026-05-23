@@ -1414,65 +1414,113 @@
       </div>
     </section>
 
-    <!-- CASE-STUDY ROW (AURORA-017 · Ryan-ratified content · monogram tiles + outcome + client-context · client-safe redacted) -->
-    <section id="case-studies" class="case-row" aria-labelledby="case-studies-h2">
+    <!-- PORTFOLIO · v3 §5 · 6 entries · replaces 4-tile case-study row -->
+    <section id="portfolio-receipts" class="case-row" aria-labelledby="portfolio-receipts-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
           <span class="section-kicker">Receipts</span>
-          <h2 id="case-studies-h2" class="section-h">What the fleet has shipped.</h2>
+          <h2 id="portfolio-receipts-h2" class="section-h">The work running today.</h2>
           <p class="body-lead mt-5">
-            Builds running in production. Client details are redacted where required. Deep-link case studies follow as each build is cleared for publication.
+            Live engagements, internal businesses, and pilots. Each entry is the actual work, not a case study from 2024. Status badges are real-time. Anything redacted is marked.
           </p>
         </div>
 
-        <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-          <!-- CASE 1: Sentinel · enterprise integrator -->
+          <!-- Entry 1: Sentinel for Enterprise Integrator -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Sentinel case study tile">
-              <span>S</span>
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">Sentinel</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
             </div>
-            <div class="case-tag">Sentinel</div>
-            <h3 class="case-title">Enterprise integrator, multi-site portal.</h3>
-            <p class="case-context">Enterprise &middot; 30+ sites &middot; multi-camera monitoring</p>
-            <p class="case-outcome">Stood up a single-pane portal across distributed sites, replacing manual camera checks with continuous status telemetry.</p>
-            <a href="#sentinel-build" class="case-link" aria-label="Read the build, Sentinel case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
+            <h3 class="case-title mt-3">Sentinel for Enterprise Integrator</h3>
+            <p class="case-context">Enterprise integrator &middot; multi-site portal plus camera monitoring across thirty client locations</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> The operations team was learning about site outages from angry client emails instead of from their own systems.</p>
+              <p class="mt-2"><strong>What was built:</strong> A single-pane portal that polls every site and every camera, runs binary pass-or-fail verdicts, and drafts client-facing daily reports automatically.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> FastAPI status portal &middot; Tailscale-meshed Mac mini &middot; automated camera-health probes &middot; agent-drafted daily reports</p>
+              <p class="mt-2"><strong>Business value:</strong> Outages caught before the client notices. The ops team stopped firefighting and started preventing. Daily reports replaced an hour of human report-writing per day.</p>
+            </div>
           </article>
 
-          <!-- CASE 2: Forge · service-business automation -->
+          <!-- Entry 2: Forge Florida Pilot -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Forge case study tile">
-              <span>F</span>
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">Forge</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255, 122, 0, 0.15); color: #b8540e; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">IN-FLIGHT</span>
             </div>
-            <div class="case-tag">Forge</div>
-            <h3 class="case-title">Service-business back office, automated.</h3>
-            <p class="case-context">Service business &middot; multi-tenant intake &middot; paperwork automation</p>
-            <p class="case-outcome">Took intake, scheduling, and recurring-billing paperwork off the operator desk and onto an automated back office with audit trail.</p>
-            <a href="#forge-build" class="case-link" aria-label="Read the build, Forge case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
+            <h3 class="case-title mt-3">Forge Florida Pilot</h3>
+            <p class="case-context">Service-business back office automation for an HOA board and a home-service operator</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> Two operators were spending six to eight hours a week each on quote-and-invoice paperwork and dues chasing.</p>
+              <p class="mt-2"><strong>What was built:</strong> An audit-then-build engagement that maps the workflow, automates intake and follow-up, and routes exceptions to the operator.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> Custom intake forms &middot; automated SMS and email sequences &middot; 10DLC-compliant messaging &middot; audit-trail log</p>
+              <p class="mt-2"><strong>Business value:</strong> The audit alone produced a written workflow map the operators can run without us. The build replaces the recurring paperwork with an audited automated sequence.</p>
+            </div>
           </article>
 
-          <!-- CASE 3: Destiny · internal portfolio -->
+          <!-- Entry 3: Aurora LP-Meta Site -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="Destiny case study tile">
-              <span>D</span>
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">Aurora</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
             </div>
-            <div class="case-tag">Destiny · Internal LOB</div>
-            <h3 class="case-title">Trading systems R&amp;D, in production.</h3>
-            <p class="case-context">Internal · proprietary research · algorithmic trading platform</p>
-            <p class="case-outcome">Built an in-house research and execution platform with kill-criteria gates that decide whether each strategy survives quarterly review.</p>
-            <a href="#destiny-build" class="case-link" aria-label="Read the build, Destiny case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
+            <h3 class="case-title mt-3">Aurora LP-Meta Site</h3>
+            <p class="case-context">This site. The portfolio entry is the portfolio.</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> A serious operator-led firm needed a credible public site shipped the same week the firm was ready to start taking inbound.</p>
+              <p class="mt-2"><strong>What was built:</strong> A productized website with brand mark, hero, service tiles, operator bios, case-study row, and managed deploy pipeline.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> Static HTML with Tailwind-style utility classes &middot; GitHub Pages with custom domain &middot; Lighthouse 100-class performance gate &middot; accessibility audit pass</p>
+              <p class="mt-2"><strong>Business value:</strong> Scope call to public URL in four working days. The site you are reading is the proof of the Aurora service. The build is the case study.</p>
+            </div>
           </article>
 
-          <!-- CASE 4: ARIA · content pipeline -->
+          <!-- Entry 4: Destiny Trading Platform -->
           <article class="case-tile reveal">
-            <div class="case-monogram" role="img" aria-label="ARIA case study tile">
-              <span>A</span>
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">Destiny &middot; Internal LOB</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
             </div>
-            <div class="case-tag">ARIA · Internal LOB</div>
-            <h3 class="case-title">Faceless travel channel, daily cadence.</h3>
-            <p class="case-context">Internal · autonomous content production · faceless travel channel</p>
-            <p class="case-outcome">Engineered an end-to-end production pipeline that drafts, voices, and publishes travel shorts on a daily cadence without on-camera talent.</p>
-            <a href="#aria-build" class="case-link" aria-label="Read the build, ARIA case study">Read the build <span class="arr" aria-hidden="true">&rarr;</span></a>
+            <h3 class="case-title mt-3">Destiny Trading Platform</h3>
+            <p class="case-context">Proprietary algorithmic trading research and execution platform, in production on a live prop account</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> A research idea needs a rigor gate that stops it before it becomes a sunk-cost belief.</p>
+              <p class="mt-2"><strong>What was built:</strong> A Bayesian per-regime posterior, Markov shadow-log, and four-metric kill-criteria gate that decides whether a strategy survives quarterly review.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> Python research stack &middot; live prop-account integration &middot; automated kill-criteria run &middot; quarterly review cadence</p>
+              <p class="mt-2"><strong>Business value:</strong> Internal LOB. The platform discipline is the proof, not the returns. The same kill-criteria gate is now applied across every Aurora engagement.</p>
+            </div>
+          </article>
+
+          <!-- Entry 5: ARIA Travel Channel -->
+          <article class="case-tile reveal">
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">ARIA &middot; Internal LOB</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(34, 139, 80, 0.15); color: #1f6e3f; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">LIVE</span>
+            </div>
+            <h3 class="case-title mt-3">ARIA Travel Channel</h3>
+            <p class="case-context">Faceless travel content pipeline, twelve videos per week on a daily cadence, no on-camera talent</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> A content channel needs to ship at cadence without a studio, an editor, or a presenter.</p>
+              <p class="mt-2"><strong>What was built:</strong> An end-to-end pipeline that scripts, voices, generates visuals, audits, and publishes shorts on a daily schedule.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> LLM scripting &middot; AI voice synthesis &middot; automated visual generation &middot; A1 to A10 publishing audit gate &middot; daily cron</p>
+              <p class="mt-2"><strong>Business value:</strong> Internal LOB. Twelve videos a week sustained for the Greece and Iceland libraries. The pipeline is the proof: we will build the same one for you, or run one for you under a managed engagement.</p>
+            </div>
+          </article>
+
+          <!-- Entry 6: clog-busters -->
+          <article class="case-tile reveal">
+            <div class="flex items-center gap-3" style="flex-wrap: wrap;">
+              <div class="case-tag">clog-busters &middot; Internal LOB</div>
+              <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255, 122, 0, 0.15); color: #b8540e; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;">IN-FLIGHT</span>
+            </div>
+            <h3 class="case-title mt-3">clog-busters Multi-Agent Build</h3>
+            <p class="case-context">Roblox gaming-vertical agent buildout, live UAT pipeline shipping pull requests at sprint cadence</p>
+            <div class="mt-4" style="font-size: 0.95rem; line-height: 1.6; color: #2c3a4a;">
+              <p class="mt-2"><strong>Problem solved:</strong> A gaming-side studio needs QA, feature work, and release management at agency-level quality on an indie-studio budget.</p>
+              <p class="mt-2"><strong>What was built:</strong> A multi-agent team (architect, implementer, auditor, release manager) that ships PRs, runs reviews, and gates releases without a human in every loop.</p>
+              <p class="mt-2"><strong>Tools and systems:</strong> Luau game engine &middot; multi-agent code review &middot; automated release gate &middot; peer-audit before promote</p>
+              <p class="mt-2"><strong>Business value:</strong> Internal LOB. Around twenty PRs in a single day during peak sprint cadence. The multi-agent pattern that ships clog-busters is the same one we apply to client engagements.</p>
+            </div>
           </article>
 
         </div>
