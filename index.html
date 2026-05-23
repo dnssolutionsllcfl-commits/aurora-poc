@@ -772,6 +772,8 @@
       transition: color .15s ease;
     }
     .nav-link:hover { color: #fff; }
+    /* Mobile menu visibility · ensure [hidden] beats inline display:flex */
+    #mobile-menu[hidden] { display: none !important; }
 
     /* ---------- REVEAL ANIMATION ---------- */
     .reveal {
