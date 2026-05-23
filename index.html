@@ -736,6 +736,33 @@
       pointer-events: none;
     }
     .op-avatar span { position: relative; z-index: 1; }
+    /* MEET-THE-TEAM v0.1 · DiceBear illustrated-avatar variant · used by Potter Vance + Atlas Mercer cards */
+    .op-avatar--dicebear {
+      background: linear-gradient(135deg, #f7e6d3 0%, #f0d4b6 100%);
+      padding: 0;
+    }
+    .op-avatar--dicebear::after { display: none; }
+    .op-avatar--dicebear img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      border-radius: 14px;
+    }
+    /* Chat CTA on agent cards · matches .tile-cta visual but pulls from card-bottom */
+    .op-chat-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.1rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent-text);
+      text-decoration: none;
+      letter-spacing: -0.005em;
+      transition: color .15s ease, transform .15s ease;
+    }
+    .op-chat-cta:hover { color: var(--accent); }
+    .op-chat-cta:hover .arr { transform: translateX(2px); }
+    .op-chat-cta .arr { display: inline-block; transition: transform .15s ease; }
     /* AURORA-019 · specialty pills (brand-palette · Stripe/Linear-style) */
     .op-pills {
       display: flex;
@@ -1086,7 +1113,7 @@
       </a>
       <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
         <a href="#portfolio-receipts" class="nav-link">Work</a>
-        <a href="#operators" class="nav-link">Operators</a>
+        <a href="#team" class="nav-link">Team</a>
         <a href="#method" class="nav-link">How we work</a>
         <a href="#contact" class="nav-link">Contact</a>
         <a href="#contact" class="btn btn-primary" style="padding: 0.55rem 1.1rem; font-size: 0.86rem;">Start a build</a>
@@ -1112,7 +1139,7 @@
     <nav id="mobile-menu" class="md:hidden" aria-label="Primary mobile" hidden
          style="position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,37,64,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
       <a href="#portfolio-receipts" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Work</a>
-      <a href="#operators" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Operators</a>
+      <a href="#team" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Team</a>
       <a href="#services" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Services</a>
       <a href="#why-us" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">Why us</a>
       <a href="#method" class="nav-link" style="padding: 0.85rem 0.25rem; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);">How we work</a>
@@ -1602,12 +1629,15 @@
       </div>
     </section>
 
-    <!-- OPERATORS -->
-    <section id="operators" class="bg-gray-50" aria-labelledby="operators-h2">
+    <!-- MEET THE TEAM · v0.1 · #operators renamed to #team · adds Potter Vance + Atlas Mercer agent cards alongside Ryan + Darsan -->
+    <section id="team" class="bg-gray-50" aria-labelledby="team-h2">
       <div class="max-w-6xl mx-auto px-6 py-24 md:py-28">
         <div class="max-w-3xl reveal">
-          <span class="section-kicker">The operators</span>
-          <h2 id="operators-h2" class="section-h">Scars, not credentials.</h2>
+          <span class="section-kicker">The team</span>
+          <h2 id="team-h2" class="section-h">Meet the team.</h2>
+          <p class="body-lead mt-5">
+            Two principals. Two named agents on the operating floor. Every project from intake to shipped coordinates through this team, together.
+          </p>
         </div>
 
         <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -1667,11 +1697,63 @@
               Microsoft Azure certified. UCF Cybersecurity Certificate.
             </p>
           </div>
+
+          <!-- Potter Vance · agent card -->
+          <div class="op-card reveal">
+            <div class="flex items-center gap-4">
+              <div class="op-avatar op-avatar--dicebear" role="img" aria-label="Potter Vance illustrated avatar">
+                <img src="assets/avatar-potter-vance.svg" alt="" width="72" height="72" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold" style="color: var(--navy);">Potter Vance</h3>
+                <p class="text-sm font-semibold" style="color: var(--ash);">Director of Operations &amp; Execution</p>
+                <div class="op-pills" aria-label="Core strengths">
+                  <span class="op-pill">Multi-agent orchestration</span>
+                  <span class="op-pill">Operational cadence</span>
+                  <span class="op-pill">Cross-portfolio routing</span>
+                  <span class="op-pill">Execution accountability</span>
+                </div>
+              </div>
+            </div>
+            <p class="body-prose mt-6">
+              Potter makes sure things ship. He runs the operating cadence at Unruly Labs, the daily rhythm of decisions, dispatches, and check-ins that turns a strategy into a customer deliverable. If something's late, he knows why. If something's blocked, he's already unblocking it.
+            </p>
+            <p class="body-prose mt-3" style="color: var(--ash); font-size: 0.95rem;">
+              Direct. Fast. Allergic to vague status updates. Believes good operations should be invisible to customers and obvious to the team. Pairs with Atlas on every cross-portfolio decision, two sets of eyes catch more than one.
+            </p>
+            <a href="mailto:potter@unrulylabslp.com" class="tile-cta op-chat-cta" onclick="if(window.$crisp){$crisp.push(['do','chat:open']); event.preventDefault();}" aria-label="Talk to Potter via chat or email">Talk to Potter <span class="arr">&rarr;</span></a>
+          </div>
+
+          <!-- Atlas Mercer · agent card -->
+          <div class="op-card reveal">
+            <div class="flex items-center gap-4">
+              <div class="op-avatar op-avatar--dicebear" role="img" aria-label="Atlas Mercer illustrated avatar">
+                <img src="assets/avatar-atlas-mercer.svg" alt="" width="72" height="72" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold" style="color: var(--navy);">Atlas Mercer</h3>
+                <p class="text-sm font-semibold" style="color: var(--ash);">Director of Strategy &amp; Intelligence</p>
+                <div class="op-pills" aria-label="Core strengths">
+                  <span class="op-pill">Strategic analysis</span>
+                  <span class="op-pill">Systems architecture</span>
+                  <span class="op-pill">Risk assessment</span>
+                  <span class="op-pill">Audit discipline</span>
+                </div>
+              </div>
+            </div>
+            <p class="body-prose mt-6">
+              Atlas turns complexity into clarity. Whether it's diagnosing why a system failed at 2 AM or mapping the fastest path from problem to solution, he's the one pulling the threads together. Data-driven, relentlessly thorough, and allergic to guesswork. Atlas makes sure nothing ships without the receipts to back it up.
+            </p>
+            <p class="body-prose mt-3" style="color: var(--ash); font-size: 0.95rem;">
+              Direct. Methodical. Asks the hard questions before they become hard problems. Prefers facts over feelings, but knows when to trust instinct. Won't sugarcoat a finding, but always pairs the diagnosis with a fix.
+            </p>
+            <a href="mailto:atlas@unrulylabslp.com" class="tile-cta op-chat-cta" onclick="if(window.$crisp){$crisp.push(['do','chat:open']); event.preventDefault();}" aria-label="Talk to Atlas via chat or email">Talk to Atlas <span class="arr">&rarr;</span></a>
+          </div>
         </div>
 
         <div class="mt-10 max-w-3xl body-prose reveal">
           <p>
-            <strong style="color: var(--navy);">The agent team.</strong> It runs the work between the principals. Each function in the company has a dedicated agent with a locked scope and a paper trail. The agents don't replace operators. They let a small team run like a much larger one.
+            <strong style="color: var(--navy);">Beyond the visible four.</strong> More named agents run specific functions across the firm, each with a locked scope and a paper trail. The agents don't replace operators. They let a small team run like a much larger one.
           </p>
         </div>
       </div>
@@ -1815,7 +1897,7 @@
             <ul>
               <li><a href="#portfolio" class="footer-link">Work</a></li>
               <li><a href="#portfolio-receipts" class="footer-link">Portfolio</a></li>
-              <li><a href="#operators" class="footer-link">Operators</a></li>
+              <li><a href="#team" class="footer-link">Team</a></li>
               <li><a href="#method" class="footer-link">How we work</a></li>
               <li><a href="#contact" class="footer-link">Contact</a></li>
             </ul>
@@ -1981,6 +2063,20 @@
           setOpen(false);
         }
       });
+    })();
+  </script>
+
+  <!-- CRISP-WIDGET v0.1 · operator-touch: replace PLACEHOLDER with WEBSITE_ID from crisp.chat dashboard
+       Setup path: signup at crisp.chat with support@unrulylabslp.com · workspace "Unruly Labs LP" ·
+       invite potter@unrulylabslp.com + atlas@unrulylabslp.com as 2 seats · copy WEBSITE_ID from
+       Crisp dashboard · reply in #opperations · Vista one-line swap to ship-live -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "PLACEHOLDER_OPERATOR_TO_FILL";
+    (function() {
+      var d = document; var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js"; s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
     })();
   </script>
 
